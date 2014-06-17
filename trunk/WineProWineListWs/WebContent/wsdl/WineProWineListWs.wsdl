@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://list.wine.ws.winepro.imse.uoc.gr" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax21="http://dto.winepro.imse.uoc.gr/xsd" xmlns:ax22="http://dto.alaz.com/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://list.wine.ws.winepro.imse.uoc.gr">
+    <wsdl:documentation>WineProWineListWs</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax24="http://dto.winepro.imse.uoc.gr/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://list.wine.ws.winepro.imse.uoc.gr">
+            <xs:import namespace="http://dto.winepro.imse.uoc.gr/xsd"/>
+            <xs:element name="listAllWinesInBetween">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="firstResult" type="xs:int"/>
+                        <xs:element minOccurs="0" name="maxResults" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listAllWinesInBetweenResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax21:WineDto"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listAllWines">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listAllWinesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax21:WineDto"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:ax23="http://dto.alaz.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dto.winepro.imse.uoc.gr/xsd">
+            <xs:import namespace="http://dto.alaz.com/xsd"/>
+            <xs:complexType name="WineDto">
+                <xs:complexContent>
+                    <xs:extension base="ax22:BaseDto">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                            <xs:element minOccurs="0" name="imageUrl" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="price" nillable="true" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="productionDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="weight" nillable="true" type="xs:float"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dto.alaz.com/xsd">
+            <xs:complexType name="BaseDto">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="listAllWinesRequest">
+        <wsdl:part name="parameters" element="ns:listAllWines"/>
+    </wsdl:message>
+    <wsdl:message name="listAllWinesResponse">
+        <wsdl:part name="parameters" element="ns:listAllWinesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="listAllWinesInBetweenRequest">
+        <wsdl:part name="parameters" element="ns:listAllWinesInBetween"/>
+    </wsdl:message>
+    <wsdl:message name="listAllWinesInBetweenResponse">
+        <wsdl:part name="parameters" element="ns:listAllWinesInBetweenResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="WineProWineListWsPortType">
+        <wsdl:operation name="listAllWines">
+            <wsdl:input message="ns:listAllWinesRequest" wsaw:Action="urn:listAllWines"/>
+            <wsdl:output message="ns:listAllWinesResponse" wsaw:Action="urn:listAllWinesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="listAllWinesInBetween">
+            <wsdl:input message="ns:listAllWinesInBetweenRequest" wsaw:Action="urn:listAllWinesInBetween"/>
+            <wsdl:output message="ns:listAllWinesInBetweenResponse" wsaw:Action="urn:listAllWinesInBetweenResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WineProWineListWsSoap11Binding" type="ns:WineProWineListWsPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="listAllWines">
+            <soap:operation soapAction="urn:listAllWines" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listAllWinesInBetween">
+            <soap:operation soapAction="urn:listAllWinesInBetween" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WineProWineListWsSoap12Binding" type="ns:WineProWineListWsPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="listAllWines">
+            <soap12:operation soapAction="urn:listAllWines" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listAllWinesInBetween">
+            <soap12:operation soapAction="urn:listAllWinesInBetween" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WineProWineListWsHttpBinding" type="ns:WineProWineListWsPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="listAllWines">
+            <http:operation location="listAllWines"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listAllWinesInBetween">
+            <http:operation location="listAllWinesInBetween"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WineProWineListWs">
+        <wsdl:port name="WineProWineListWsHttpSoap11Endpoint" binding="ns:WineProWineListWsSoap11Binding">
+            <soap:address location="http://localhost:9080/WineProWineListWs/services/WineProWineListWs.WineProWineListWsHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="WineProWineListWsHttpSoap12Endpoint" binding="ns:WineProWineListWsSoap12Binding">
+            <soap12:address location="http://localhost:9080/WineProWineListWs/services/WineProWineListWs.WineProWineListWsHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="WineProWineListWsHttpEndpoint" binding="ns:WineProWineListWsHttpBinding">
+            <http:address location="http://localhost:9080/WineProWineListWs/services/WineProWineListWs.WineProWineListWsHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
