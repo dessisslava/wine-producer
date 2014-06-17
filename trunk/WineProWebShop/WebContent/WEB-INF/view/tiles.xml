@@ -1,0 +1,35 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="template" template="/WEB-INF/view/main_template.jsp">
+		<put-attribute name="top" value="/WEB-INF/view/top_banner.jsp" />
+		<put-attribute name="side" value="/WEB-INF/view/login/signinsignup.jsp" />
+	</definition>
+
+	<definition name="home" extends="template">
+		<put-attribute name="content" value="/WEB-INF/view/home.jsp" />
+		<put-attribute name="side_down" value="/WEB-INF/view/shopping/shopping_cart.jsp" />
+	</definition>
+
+	<definition name="review_cart" extends="template">
+		<put-attribute name="content" value="/WEB-INF/view/shopping/review_cart.jsp" />
+		<put-attribute name="side_down" value="/WEB-INF/view/shopping/empty.jsp" />
+	</definition>
+	
+	<definition name="payment_result" extends="template">
+		<put-attribute name="content" value="/WEB-INF/view/success.jsp" />
+		<put-attribute name="side_down" value="/WEB-INF/view/shopping/empty.jsp" />
+	</definition>
+
+	<definition name="login" extends="template">
+		<put-attribute name="content" value="/WEB-INF/view/login/login.jsp" />
+		<put-attribute name="side" value="/WEB-INF/view/login/alreadyamember.jsp" />
+		<put-attribute name="side_down" value="/WEB-INF/view/shopping/shopping_cart.jsp" />
+	</definition>
+
+	<definition name="admin" extends="template">
+		<put-attribute name="content" value="/WEB-INF/view/admin.jsp" />
+	</definition>
+</tiles-definitions>
