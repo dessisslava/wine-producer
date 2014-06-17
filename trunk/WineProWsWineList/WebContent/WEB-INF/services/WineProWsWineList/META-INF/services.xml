@@ -1,18 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) --><serviceGroup>
-    <service name="WineProWsWineList">
-        <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="gr.uoc.imse.winepro.ws.wine.list.WineProWsWineListMessageReceiverInOut"/>
-        </messageReceivers>
-        <parameter name="ServiceClass">gr.uoc.imse.winepro.ws.wine.list.WineProWsWineListSkeleton</parameter>
-        <parameter name="useOriginalwsdl">true</parameter>
-        <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="listAllWines" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWsWineList/">
-            <actionMapping>http://imse.uoc.gr/WineProWsWineList/listAllWines</actionMapping>
-            <outputActionMapping>http://imse.uoc.gr/WineProWsWineList/WineProWsWineList/listAllWinesResponse</outputActionMapping>
-        </operation>
-        <operation name="listAllWinesInBetween" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWsWineList/">
-            <actionMapping>http://imse.uoc.gr/WineProWsWineList/listAllWinesInBetween</actionMapping>
-            <outputActionMapping>http://imse.uoc.gr/WineProWsWineList/WineProWsWineList/listAllWinesInBetweenResponse</outputActionMapping>
-        </operation>
-    </service>
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceGroup>
+	<service name="WineProWsWineList">
+		<description>
+			Wine Pro Order WS
+		</description>
+		<parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName">springAwareService</parameter>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+				class="gr.uoc.imse.winepro.ws.wine.list.WineProWsWineListMessageReceiverInOut" />
+		</messageReceivers>
+		<parameter name="ServiceClass">gr.uoc.imse.winepro.ws.wine.list.WineProWsWineListSkeleton</parameter>
+		<parameter name="useOriginalwsdl">true</parameter>
+		<parameter name="modifyUserWSDLPortAddress">true</parameter>
+		<operation name="listAllWines" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWsWineList/">
+			<actionMapping>http://imse.uoc.gr/WineProWsWineList/listAllWines</actionMapping>
+			<outputActionMapping>http://imse.uoc.gr/WineProWsWineList/WineProWsWineList/listAllWinesResponse
+			</outputActionMapping>
+		</operation>
+		<operation name="listAllWinesInBetween" mep="http://www.w3.org/ns/wsdl/in-out"
+			namespace="http://imse.uoc.gr/WineProWsWineList/">
+			<actionMapping>http://imse.uoc.gr/WineProWsWineList/listAllWinesInBetween</actionMapping>
+			<outputActionMapping>http://imse.uoc.gr/WineProWsWineList/WineProWsWineList/listAllWinesInBetweenResponse
+			</outputActionMapping>
+		</operation>
+		<excludeOperations>
+			<operation>setWineService</operation>
+		</excludeOperations>
+	</service>
 </serviceGroup>
