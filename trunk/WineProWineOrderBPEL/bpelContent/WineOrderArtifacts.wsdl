@@ -101,7 +101,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <service name="WineOrderService">
     	<port binding="tns:WineOrderBinding" name="WineOrderPort">
-    		<soap:address location="http://localhost:9180/ode/processes/WineOrder"/>
+    		<soap:address location="http://localhost:9080/ode/processes/WineOrder"/>
     	</port>
     </service>
 </definitions>
