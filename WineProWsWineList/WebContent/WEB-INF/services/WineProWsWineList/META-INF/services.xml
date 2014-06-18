@@ -2,7 +2,7 @@
 <serviceGroup>
 	<service name="WineProWsWineList">
 		<description>
-			Wine Pro Order WS
+			Wine Pro Wine List WS
 		</description>
 		<parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
 		</parameter>
