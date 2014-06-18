@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://imse.uoc.gr" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/" name="ApproveInvoice" targetNamespace="http://imse.uoc.gr">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="WarehouseReservationPLT">
+    <plnk:role name="WarehouseReservationPLRole" portType="wsdl:WineProWsWarehouseInventoryReserve"/>
+  </plnk:partnerLinkType>
+    <import location="WineProWsWarehouseInventoryReserve.wsdl" namespace="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://imse.uoc.gr">
+
+    <element name="ApproveInvoiceRequest">
+                <complexType>
+                    <sequence>
+                    	<element name="wineId" type="int"/>
+                    	<element name="quantity" type="int"/>
+                    	<element name="warehouseCity" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="ApproveInvoiceResponse">
+                <complexType>
+                    <sequence>
+                    	<element name="totalPriceOfGoods" type="decimal"/>
+                    	<element name="message" type="string"/>
+                    	<element name="transportationCost" type="decimal">
+                    	</element>
+                    	<element name="satisfiable" type="boolean"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="ApproveInvoiceRequestMessage">
+        <part element="tns:ApproveInvoiceRequest" name="payload"/>
+    </message>
+    <message name="ApproveInvoiceResponseMessage">
+        <part element="tns:ApproveInvoiceResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the ApproveInvoice BPEL process -->
+    <portType name="ApproveInvoice">
+        <operation name="process">
+            <input message="tns:ApproveInvoiceRequestMessage"/>
+            <output message="tns:ApproveInvoiceResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="ApproveInvoice">
+        <plnk:role name="ApproveInvoiceProvider" portType="tns:ApproveInvoice"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="ApproveInvoiceBinding" type="tns:ApproveInvoice">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    	<operation name="process">
+    		<soap:operation soapAction="http://imse.uoc.gr/process"/>
+    		<input>
+    			<soap:body use="literal"/>
+    		</input>
+    		<output>
+    			<soap:body use="literal"/>
+    		</output>
+    	</operation>
+    </binding>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="ApproveInvoiceService">
+    	<port binding="tns:ApproveInvoiceBinding" name="ApproveInvoicePort">
+    		<soap:address location="http://localhost:9080/ode/processes/ApproveInvoice"/>
+    	</port>
+    </service>
+</definitions>
