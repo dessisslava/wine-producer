@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="WineProWsWarehouseInventoryCheck" targetNamespace="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/" xmlns:Q1="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck">
+            <xsd:import namespace="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck" schemaLocation="WineProWsWarehouseInventoryCheck.xsd"/>
+            <xsd:element name="warehouseInventoryCheck">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="wineQuantityPairs" type="Q1:WineQuantityPairType"/>
+          	<xsd:element name="warehouseCity" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="warehouseInventoryCheckResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="message" type="xsd:string"/>
+          	<xsd:element name="satisfiable" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="warehouseInventoryCheckResponse">
+    <wsdl:part name="parameters" element="tns:warehouseInventoryCheckResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="warehouseInventoryCheckRequest">
+    <wsdl:part name="parameters" element="tns:warehouseInventoryCheck">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WineProWsWarehouseInventoryCheck">
+    <wsdl:operation name="warehouseInventoryCheck">
+      <wsdl:input message="tns:warehouseInventoryCheckRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:warehouseInventoryCheckResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WineProWsWarehouseInventoryCheckSOAP" type="tns:WineProWsWarehouseInventoryCheck">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="warehouseInventoryCheck">
+      <soap:operation soapAction="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/warehouseInventoryCheck"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WineProWsWarehouseInventoryCheck">
+    <wsdl:port name="WineProWsWarehouseInventoryCheckSOAP" binding="tns:WineProWsWarehouseInventoryCheckSOAP">
+      <soap:address location="http://localhost:9080/WineProWsWarehouseInventoryCheck/services/WineProWsWarehouseInventoryCheck"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
