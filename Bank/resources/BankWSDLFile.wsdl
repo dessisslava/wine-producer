@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BankWSDLFile" targetNamespace="http://www.example.org/BankWSDLFile/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/BankWSDLFile/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/BankWSDLFile/">
+      <xsd:element name="TransferMoney">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="Amount" type="xsd:double"/>
+          	<xsd:element name="RetailerCreditCard" type="tns:CreditCardType"/>
+          	<xsd:element name="WineProducerCreditCard" type="tns:CreditCardType">
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransferMoneyResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TransferResponse" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="CreditCardType">
+      	<xsd:sequence>
+      		<xsd:element name="Name_Surname" type="xsd:string"/>
+      		<xsd:element name="ExpirationDate" type="xsd:date"/>
+      		<xsd:element name="CardNumber" type="xsd:string"/>
+      		<xsd:element name="SecurityCode" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="TransferMoneyResponse">
+    <wsdl:part name="parameters" element="tns:TransferMoneyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransferMoneyRequest">
+    <wsdl:part name="parameters" element="tns:TransferMoney">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BankWSDLFile">
+    <wsdl:operation name="TransferMoney">
+      <wsdl:input message="tns:TransferMoneyRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:TransferMoneyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BankWSDLFileSOAP" type="tns:BankWSDLFile">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TransferMoney">
+      <soap:operation soapAction="http://www.example.org/BankWSDLFile/TransferMoney"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BankWSDLFile">
+    <wsdl:port name="BankWSDLFileSOAP" binding="tns:BankWSDLFileSOAP">
+      <soap:address location="http://localhost:8080/Bank/services/BankWSDLFile"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
