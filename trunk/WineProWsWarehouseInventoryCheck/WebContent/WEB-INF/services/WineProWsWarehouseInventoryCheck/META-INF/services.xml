@@ -1,14 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) --><serviceGroup>
-    <service name="WineProWsWarehouseInventoryCheck">
-        <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="gr.uoc.imse.winepro.ws.warehouse.inventory.WineProWsWarehouseInventoryCheckMessageReceiverInOut"/>
-        </messageReceivers>
-        <parameter name="ServiceClass">gr.uoc.imse.winepro.ws.warehouse.inventory.WineProWsWarehouseInventoryCheckSkeleton</parameter>
-        <parameter name="useOriginalwsdl">true</parameter>
-        <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="warehouseInventoryCheck" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/">
-            <actionMapping>http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/warehouseInventoryCheck</actionMapping>
-            <outputActionMapping>http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/WineProWsWarehouseInventoryCheck/warehouseInventoryCheckResponse</outputActionMapping>
-        </operation>
-    </service>
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceGroup>
+	<service name="WineProWsWarehouseInventoryCheck">
+		<description>
+			Wine Pro Warehouse Inventory Check WS
+		</description>
+		<parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName">springAwareService</parameter>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+				class="gr.uoc.imse.winepro.ws.warehouse.inventory.WineProWsWarehouseInventoryCheckMessageReceiverInOut" />
+		</messageReceivers>
+		<parameter name="ServiceClass">gr.uoc.imse.winepro.ws.warehouse.inventory.WineProWsWarehouseInventoryCheckSkeleton
+		</parameter>
+		<parameter name="useOriginalwsdl">true</parameter>
+		<parameter name="modifyUserWSDLPortAddress">true</parameter>
+		<operation name="warehouseInventoryCheck" mep="http://www.w3.org/ns/wsdl/in-out"
+			namespace="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/">
+			<actionMapping>http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/warehouseInventoryCheck
+			</actionMapping>
+			<outputActionMapping>http://imse.uoc.gr/WineProWsWarehouseInventoryCheck/WineProWsWarehouseInventoryCheck/warehouseInventoryCheckResponse
+			</outputActionMapping>
+		</operation>
+		<excludeOperations>
+			<operation>setInventoryService</operation>
+		</excludeOperations>
+		<excludeOperations>
+			<operation>setWarehouseService</operation>
+		</excludeOperations>
+	</service>
 </serviceGroup>
