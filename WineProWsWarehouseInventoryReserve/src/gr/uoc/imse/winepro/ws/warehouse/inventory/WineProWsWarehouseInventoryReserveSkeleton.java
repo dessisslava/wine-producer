@@ -4,11 +4,31 @@
  */
 package gr.uoc.imse.winepro.ws.warehouse.inventory;
 
+import gr.uoc.imse.winepro.service.InventoryService;
+import gr.uoc.imse.winepro.service.WarehouseService;
+
 /**
  * WineProWsWarehouseInventoryReserveSkeleton java skeleton for the axisService
  */
 public class WineProWsWarehouseInventoryReserveSkeleton
 {
+	private WarehouseService warehouseService;
+
+	private InventoryService inventoryService;
+
+	public WineProWsWarehouseInventoryReserveSkeleton ()
+	{
+	}
+
+	public void setWarehouseService ( WarehouseService warehouseService )
+	{
+		this.warehouseService = warehouseService;
+	}
+
+	public void setInventoryService ( InventoryService inventoryService )
+	{
+		this.inventoryService = inventoryService;
+	}
 
 	/**
 	 * Auto generated method signature
