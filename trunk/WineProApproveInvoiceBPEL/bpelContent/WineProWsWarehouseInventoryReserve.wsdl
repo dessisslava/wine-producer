@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WineProWsWarehouseInventoryReserve" targetNamespace="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/" xmlns:Q1="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve">
+            <xsd:import schemaLocation="WineProWsWarehouseInventoryReserve.xsd" namespace="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve"></xsd:import>
+            <xsd:element name="warehouseInventoryReserve">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="wineQuantityPairs" type="Q1:WineQuantityPairType"></xsd:element>
+          	<xsd:element name="warehouseCity" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="warehouseInventoryReserveResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="message" type="xsd:string" />
+          	<xsd:element name="success" type="xsd:boolean"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="warehouseInventoryReserveRequest">
+    <wsdl:part element="tns:warehouseInventoryReserve" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="warehouseInventoryReserveResponse">
+    <wsdl:part element="tns:warehouseInventoryReserveResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="WineProWsWarehouseInventoryReserve">
+    <wsdl:operation name="warehouseInventoryReserve">
+      <wsdl:input message="tns:warehouseInventoryReserveRequest"/>
+      <wsdl:output message="tns:warehouseInventoryReserveResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WineProWsWarehouseInventoryReserveSOAP" type="tns:WineProWsWarehouseInventoryReserve">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="warehouseInventoryReserve">
+      <soap:operation soapAction="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/warehouseInventoryReserve"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WineProWsWarehouseInventoryReserve">
+    <wsdl:port binding="tns:WineProWsWarehouseInventoryReserveSOAP" name="WineProWsWarehouseInventoryReserveSOAP">
+      <soap:address location="http://localhost:9080/WineProWsWarehouseInventoryReserve/services/WineProWsWarehouseInventoryReserve"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
