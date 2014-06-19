@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:GrapesProducerNorth="http://www.winepro.imse.uoc/GrapesProducerNorth/" xmlns:GrapesProducerSouth="http://www.winepro.imse.uoc/GrapesProducerSouth/" xmlns:Order_Grapes="http://eclipse.org/bpel/Order_Grapes" xmlns:Perform_Order="http://eclipse.org/bpel/Perform_Order">
+  <process name="Order_Grapes:Order_Grapes">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="WineCompany">
+      <service name="Order_Grapes:Order_GrapesService" port="Order_GrapesPort"/>
+    </provide>
+    <invoke partnerLink="GrapeProducerNorth">
+      <service name="GrapesProducerNorth:GrapesProducerNorth" port="GrapesProducerNorthSOAP"/>
+    </invoke>
+    <invoke partnerLink="GrapesProducerSouth">
+      <service name="GrapesProducerSouth:GrapesProducerSouth" port="GrapesProducerSouthSOAP"/>
+    </invoke>
+    <invoke partnerLink="PerformOrder">
+      <service name="Perform_Order:Perform_OrderService" port="Perform_OrderPort"/>
+    </invoke>
+  </process>
+</deploy>
