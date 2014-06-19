@@ -11,7 +11,7 @@ import java.security.SecureRandom;
 
 public class MySQL_connection_South {
 
-    private static String dbURL = "jdbc:mysql://localhost:3306/grapesproducernorth?user=root&password=admin";
+    private static String dbURL = "jdbc:mysql://localhost:3306/grapesproducersouth?user=root&password=admin";
     private static Connection conn = null;
     private static Statement stmt = null;
     
