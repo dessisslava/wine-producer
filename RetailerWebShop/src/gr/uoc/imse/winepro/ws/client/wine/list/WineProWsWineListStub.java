@@ -97,7 +97,7 @@ public class WineProWsWineListStub extends org.apache.axis2.client.Stub
 	public WineProWsWineListStub ( org.apache.axis2.context.ConfigurationContext configurationContext ) throws org.apache.axis2.AxisFault
 	{
 
-		this( configurationContext, "http://localhost:9080/WineProWsWineList/services/WineProWsWineList" );
+		this( configurationContext, "http://localhost:9080/WineProWs/services/WineProWs" );
 
 	}
 
@@ -107,7 +107,7 @@ public class WineProWsWineListStub extends org.apache.axis2.client.Stub
 	public WineProWsWineListStub () throws org.apache.axis2.AxisFault
 	{
 
-		this( "http://localhost:9080/WineProWsWineList/services/WineProWsWineList" );
+		this( "http://localhost:9080/WineProWs/services/WineProWs" );
 
 	}
 
@@ -428,7 +428,7 @@ public class WineProWsWineListStub extends org.apache.axis2.client.Stub
 		return false;
 	}
 
-	// http://localhost:9080/WineProWsWineList/services/WineProWsWineList
+	// http://localhost:9080/WineProWs/services/WineProWs
 	public static class ListAllWinesInBetween implements org.apache.axis2.databinding.ADBBean
 	{
 
