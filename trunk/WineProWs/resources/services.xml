@@ -10,5 +10,21 @@
             <actionMapping>http://imse.uoc.gr/WineProWs/listAllWines</actionMapping>
             <outputActionMapping>http://imse.uoc.gr/WineProWs/WineProWs/listAllWinesResponse</outputActionMapping>
         </operation>
+        <operation name="listAllWinesInBetween" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWs/">
+            <actionMapping>http://imse.uoc.gr/WineProWs/listAllWinesInBetween</actionMapping>
+            <outputActionMapping>http://imse.uoc.gr/WineProWs/WineProWs/listAllWinesInBetweenResponse</outputActionMapping>
+        </operation>
+        <operation name="warehouseInventoryCheck" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWs/">
+            <actionMapping>http://imse.uoc.gr/WineProWs/warehouseInventoryCheck</actionMapping>
+            <outputActionMapping>http://imse.uoc.gr/WineProWs/WineProWs/warehouseInventoryCheckResponse</outputActionMapping>
+        </operation>
+        <operation name="warehouseInventoryReserve" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWs/">
+            <actionMapping>http://imse.uoc.gr/WineProWs/warehouseInventoryReserve</actionMapping>
+            <outputActionMapping>http://imse.uoc.gr/WineProWs/WineProWs/warehouseInventoryReserveResponse</outputActionMapping>
+        </operation>
+        <operation name="getTotalPriceOfGoods" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWs/">
+            <actionMapping>http://imse.uoc.gr/WineProWs/getTotalPriceOfGoods</actionMapping>
+            <outputActionMapping>http://imse.uoc.gr/WineProWs/WineProWs/getTotalPriceOfGoodsResponse</outputActionMapping>
+        </operation>
     </service>
 </serviceGroup>
