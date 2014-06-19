@@ -2,9 +2,9 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.2.4
+-- Dumped from database version 9.3.4
 -- Dumped by pg_dump version 9.3.4
--- Started on 2014-05-21 03:57:46
+-- Started on 2014-06-19 00:16:33
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -13,14 +13,15 @@ SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
-DROP DATABASE "winepro_db_v1.0";
 --
--- TOC entry 2036 (class 1262 OID 47114)
--- Name: winepro_db_v1.0; Type: DATABASE; Schema: -; Owner: -
+-- TOC entry 2059 (class 1262 OID 24576)
+-- Name: winepro_db_v1.0; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE "winepro_db_v1.0" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
+CREATE DATABASE "winepro_db_v1.0" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'Turkish_Turkey.1254' LC_CTYPE = 'Turkish_Turkey.1254';
 
+
+ALTER DATABASE "winepro_db_v1.0" OWNER TO postgres;
 
 \connect "winepro_db_v1.0"
 
@@ -32,83 +33,61 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- TOC entry 6 (class 2615 OID 47115)
--- Name: labs; Type: SCHEMA; Schema: -; Owner: -
+-- TOC entry 7 (class 2615 OID 24656)
+-- Name: winepro; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
-CREATE SCHEMA labs;
+CREATE SCHEMA winepro;
 
 
---
--- TOC entry 7 (class 2615 OID 2200)
--- Name: public; Type: SCHEMA; Schema: -; Owner: -
---
-
-CREATE SCHEMA public;
-
+ALTER SCHEMA winepro OWNER TO postgres;
 
 --
--- TOC entry 2037 (class 0 OID 0)
--- Dependencies: 7
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON SCHEMA public IS 'standard public schema';
-
-
---
--- TOC entry 183 (class 3079 OID 11769)
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
+-- TOC entry 188 (class 3079 OID 11750)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2039 (class 0 OID 0)
--- Dependencies: 183
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
+-- TOC entry 2062 (class 0 OID 0)
+-- Dependencies: 188
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
-SET search_path = labs, pg_catalog;
+SET search_path = winepro, pg_catalog;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- TOC entry 169 (class 1259 OID 47116)
--- Name: availability; Type: TABLE; Schema: labs; Owner: -; Tablespace: 
+-- TOC entry 171 (class 1259 OID 24657)
+-- Name: tb_address; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE availability (
-    product_id integer NOT NULL,
-    amount integer NOT NULL,
-    availability_threshold integer NOT NULL,
-    CONSTRAINT "Availability_amount_check" CHECK ((amount >= 0))
+CREATE TABLE tb_address (
+    fl_id integer NOT NULL,
+    fl_region character varying(200) DEFAULT 'Crete'::character varying NOT NULL,
+    fl_address character varying(500) NOT NULL,
+    fl_postal_code character varying(20),
+    fl_phone_number character varying(20),
+    fl_city_name character varying(100) NOT NULL
 );
 
 
---
--- TOC entry 170 (class 1259 OID 47120)
--- Name: order; Type: TABLE; Schema: labs; Owner: -; Tablespace: 
---
-
-CREATE TABLE "order" (
-    id integer NOT NULL,
-    status smallint NOT NULL
-);
-
+ALTER TABLE winepro.tb_address OWNER TO postgres;
 
 --
--- TOC entry 171 (class 1259 OID 47123)
--- Name: order_id_seq; Type: SEQUENCE; Schema: labs; Owner: -
+-- TOC entry 172 (class 1259 OID 24660)
+-- Name: tb_address_fl_id_seq; Type: SEQUENCE; Schema: winepro; Owner: postgres
 --
 
-CREATE SEQUENCE order_id_seq
+CREATE SEQUENCE tb_address_fl_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -116,47 +95,40 @@ CREATE SEQUENCE order_id_seq
     CACHE 1;
 
 
---
--- TOC entry 2040 (class 0 OID 0)
--- Dependencies: 171
--- Name: order_id_seq; Type: SEQUENCE OWNED BY; Schema: labs; Owner: -
---
-
-ALTER SEQUENCE order_id_seq OWNED BY "order".id;
-
+ALTER TABLE winepro.tb_address_fl_id_seq OWNER TO postgres;
 
 --
--- TOC entry 172 (class 1259 OID 47125)
--- Name: order_order_id_seq; Type: SEQUENCE; Schema: labs; Owner: -
+-- TOC entry 2063 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: tb_address_fl_id_seq; Type: SEQUENCE OWNED BY; Schema: winepro; Owner: postgres
 --
 
-CREATE SEQUENCE order_order_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+ALTER SEQUENCE tb_address_fl_id_seq OWNED BY tb_address.fl_id;
 
 
 --
--- TOC entry 173 (class 1259 OID 47127)
--- Name: order_product; Type: TABLE; Schema: labs; Owner: -; Tablespace: 
+-- TOC entry 173 (class 1259 OID 24667)
+-- Name: tb_inventory; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE order_product (
-    order_id integer NOT NULL,
-    product_id integer NOT NULL,
-    amount integer NOT NULL,
-    id integer NOT NULL
+CREATE TABLE tb_inventory (
+    fl_id integer NOT NULL,
+    fl_wine_id integer NOT NULL,
+    fl_amount integer DEFAULT 0 NOT NULL,
+    fl_warehouse_id integer NOT NULL,
+    fl_reserved_amount integer DEFAULT 0 NOT NULL,
+    CONSTRAINT check_fl_amount CHECK ((fl_amount >= 0))
 );
 
 
+ALTER TABLE winepro.tb_inventory OWNER TO postgres;
+
 --
--- TOC entry 174 (class 1259 OID 47130)
--- Name: order_product_id_seq; Type: SEQUENCE; Schema: labs; Owner: -
+-- TOC entry 174 (class 1259 OID 24672)
+-- Name: tb_inventory_fl_id_seq; Type: SEQUENCE; Schema: winepro; Owner: postgres
 --
 
-CREATE SEQUENCE order_product_id_seq
+CREATE SEQUENCE tb_inventory_fl_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -164,36 +136,42 @@ CREATE SEQUENCE order_product_id_seq
     CACHE 1;
 
 
+ALTER TABLE winepro.tb_inventory_fl_id_seq OWNER TO postgres;
+
 --
--- TOC entry 2041 (class 0 OID 0)
+-- TOC entry 2064 (class 0 OID 0)
 -- Dependencies: 174
--- Name: order_product_id_seq; Type: SEQUENCE OWNED BY; Schema: labs; Owner: -
+-- Name: tb_inventory_fl_id_seq; Type: SEQUENCE OWNED BY; Schema: winepro; Owner: postgres
 --
 
-ALTER SEQUENCE order_product_id_seq OWNED BY order_product.id;
+ALTER SEQUENCE tb_inventory_fl_id_seq OWNED BY tb_inventory.fl_id;
 
 
 --
--- TOC entry 175 (class 1259 OID 47132)
--- Name: product; Type: TABLE; Schema: labs; Owner: -; Tablespace: 
+-- TOC entry 175 (class 1259 OID 24674)
+-- Name: tb_order; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE product (
-    id integer NOT NULL,
-    product character varying(100) NOT NULL,
-    producer character varying(50) NOT NULL,
-    weight real NOT NULL,
-    price real NOT NULL,
-    image_name character varying(200) NOT NULL
+CREATE TABLE tb_order (
+    fl_id bigint NOT NULL,
+    fl_status smallint DEFAULT 0 NOT NULL,
+    fl_order_date timestamp without time zone DEFAULT now() NOT NULL,
+    fl_total_price_of_goods numeric NOT NULL,
+    fl_transportation_cost numeric DEFAULT 0 NOT NULL,
+    fl_transportation_company_id integer DEFAULT (-1),
+    fl_customer_name character varying(30) NOT NULL,
+    fl_payment_info_id bigint DEFAULT (-1)
 );
 
 
+ALTER TABLE winepro.tb_order OWNER TO postgres;
+
 --
--- TOC entry 176 (class 1259 OID 47135)
--- Name: product_id_seq; Type: SEQUENCE; Schema: labs; Owner: -
+-- TOC entry 176 (class 1259 OID 24680)
+-- Name: tb_order_fl_id_seq; Type: SEQUENCE; Schema: winepro; Owner: postgres
 --
 
-CREATE SEQUENCE product_id_seq
+CREATE SEQUENCE tb_order_fl_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -201,33 +179,43 @@ CREATE SEQUENCE product_id_seq
     CACHE 1;
 
 
+ALTER TABLE winepro.tb_order_fl_id_seq OWNER TO postgres;
+
 --
--- TOC entry 2042 (class 0 OID 0)
+-- TOC entry 2065 (class 0 OID 0)
 -- Dependencies: 176
--- Name: product_id_seq; Type: SEQUENCE OWNED BY; Schema: labs; Owner: -
+-- Name: tb_order_fl_id_seq; Type: SEQUENCE OWNED BY; Schema: winepro; Owner: postgres
 --
 
-ALTER SEQUENCE product_id_seq OWNED BY product.id;
+ALTER SEQUENCE tb_order_fl_id_seq OWNED BY tb_order.fl_id;
 
 
 --
--- TOC entry 177 (class 1259 OID 47137)
--- Name: resupply_order; Type: TABLE; Schema: labs; Owner: -; Tablespace: 
+-- TOC entry 177 (class 1259 OID 24684)
+-- Name: tb_payment_info; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE resupply_order (
-    status smallint NOT NULL,
-    expected_available_date date NOT NULL,
-    id integer NOT NULL
+CREATE TABLE tb_payment_info (
+    fl_id bigint NOT NULL,
+    fl_name_surname character varying(26) NOT NULL,
+    fl_expiration_date date NOT NULL,
+    fl_number character(16) NOT NULL,
+    fl_security_code smallint NOT NULL,
+    fl_transaction_date date DEFAULT now() NOT NULL,
+    fl_credit_card_type smallint NOT NULL,
+    fl_status smallint DEFAULT 0 NOT NULL,
+    fl_payment_amount numeric DEFAULT 0 NOT NULL
 );
 
 
+ALTER TABLE winepro.tb_payment_info OWNER TO postgres;
+
 --
--- TOC entry 178 (class 1259 OID 47140)
--- Name: resupply_order_id_seq; Type: SEQUENCE; Schema: labs; Owner: -
+-- TOC entry 178 (class 1259 OID 24687)
+-- Name: tb_payment_info_fl_id_seq; Type: SEQUENCE; Schema: winepro; Owner: postgres
 --
 
-CREATE SEQUENCE resupply_order_id_seq
+CREATE SEQUENCE tb_payment_info_fl_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -235,47 +223,38 @@ CREATE SEQUENCE resupply_order_id_seq
     CACHE 1;
 
 
+ALTER TABLE winepro.tb_payment_info_fl_id_seq OWNER TO postgres;
+
 --
--- TOC entry 179 (class 1259 OID 47142)
--- Name: resupply_order_id_seq1; Type: SEQUENCE; Schema: labs; Owner: -
+-- TOC entry 2066 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: tb_payment_info_fl_id_seq; Type: SEQUENCE OWNED BY; Schema: winepro; Owner: postgres
 --
 
-CREATE SEQUENCE resupply_order_id_seq1
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+ALTER SEQUENCE tb_payment_info_fl_id_seq OWNED BY tb_payment_info.fl_id;
 
 
 --
--- TOC entry 2043 (class 0 OID 0)
--- Dependencies: 179
--- Name: resupply_order_id_seq1; Type: SEQUENCE OWNED BY; Schema: labs; Owner: -
+-- TOC entry 179 (class 1259 OID 24689)
+-- Name: tb_transportation_company; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
 --
 
-ALTER SEQUENCE resupply_order_id_seq1 OWNED BY resupply_order.id;
-
-
---
--- TOC entry 180 (class 1259 OID 47144)
--- Name: resupply_order_product; Type: TABLE; Schema: labs; Owner: -; Tablespace: 
---
-
-CREATE TABLE resupply_order_product (
-    resupply_order_id integer NOT NULL,
-    product_id integer NOT NULL,
-    amount integer NOT NULL,
-    id integer NOT NULL
+CREATE TABLE tb_transportation_company (
+    fl_id integer NOT NULL,
+    fl_name character varying(50) NOT NULL,
+    fl_ws_connection_link text,
+    fl_active boolean DEFAULT false NOT NULL
 );
 
 
+ALTER TABLE winepro.tb_transportation_company OWNER TO postgres;
+
 --
--- TOC entry 181 (class 1259 OID 47147)
--- Name: resupply_order_product_id_seq; Type: SEQUENCE; Schema: labs; Owner: -
+-- TOC entry 180 (class 1259 OID 24692)
+-- Name: tb_transportation_company_fl_id_seq; Type: SEQUENCE; Schema: winepro; Owner: postgres
 --
 
-CREATE SEQUENCE resupply_order_product_id_seq
+CREATE SEQUENCE tb_transportation_company_fl_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -283,298 +262,596 @@ CREATE SEQUENCE resupply_order_product_id_seq
     CACHE 1;
 
 
+ALTER TABLE winepro.tb_transportation_company_fl_id_seq OWNER TO postgres;
+
 --
--- TOC entry 2044 (class 0 OID 0)
--- Dependencies: 181
--- Name: resupply_order_product_id_seq; Type: SEQUENCE OWNED BY; Schema: labs; Owner: -
+-- TOC entry 2067 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: tb_transportation_company_fl_id_seq; Type: SEQUENCE OWNED BY; Schema: winepro; Owner: postgres
 --
 
-ALTER SEQUENCE resupply_order_product_id_seq OWNED BY resupply_order_product.id;
+ALTER SEQUENCE tb_transportation_company_fl_id_seq OWNED BY tb_transportation_company.fl_id;
 
 
 SET default_with_oids = true;
 
 --
--- TOC entry 182 (class 1259 OID 47149)
--- Name: user; Type: TABLE; Schema: labs; Owner: -; Tablespace: 
+-- TOC entry 181 (class 1259 OID 24694)
+-- Name: tb_user; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE "user" (
+CREATE TABLE tb_user (
     name character varying(30) NOT NULL,
     password character varying(32) NOT NULL,
     active boolean DEFAULT true NOT NULL,
     email_address character varying(75) NOT NULL,
     first_name character varying(75) NOT NULL,
     middle_name character varying(75) DEFAULT NULL::character varying,
-    last_name character varying(75) NOT NULL
+    last_name character varying(75) NOT NULL,
+    role_name character varying(100) NOT NULL
 );
 
 
---
--- TOC entry 1888 (class 2604 OID 47154)
--- Name: id; Type: DEFAULT; Schema: labs; Owner: -
---
+ALTER TABLE winepro.tb_user OWNER TO postgres;
 
-ALTER TABLE ONLY "order" ALTER COLUMN id SET DEFAULT nextval('order_id_seq'::regclass);
-
+SET default_with_oids = false;
 
 --
--- TOC entry 1889 (class 2604 OID 47155)
--- Name: id; Type: DEFAULT; Schema: labs; Owner: -
+-- TOC entry 182 (class 1259 OID 24699)
+-- Name: tb_warehouse; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY order_product ALTER COLUMN id SET DEFAULT nextval('order_product_id_seq'::regclass);
+CREATE TABLE tb_warehouse (
+    fl_id integer NOT NULL,
+    fl_address_id integer NOT NULL,
+    fl_name character varying(100) NOT NULL
+);
 
 
---
--- TOC entry 1890 (class 2604 OID 47156)
--- Name: id; Type: DEFAULT; Schema: labs; Owner: -
---
-
-ALTER TABLE ONLY product ALTER COLUMN id SET DEFAULT nextval('product_id_seq'::regclass);
-
+ALTER TABLE winepro.tb_warehouse OWNER TO postgres;
 
 --
--- TOC entry 1891 (class 2604 OID 47157)
--- Name: id; Type: DEFAULT; Schema: labs; Owner: -
+-- TOC entry 183 (class 1259 OID 24702)
+-- Name: tb_warehouse_fl_id_seq; Type: SEQUENCE; Schema: winepro; Owner: postgres
 --
 
-ALTER TABLE ONLY resupply_order ALTER COLUMN id SET DEFAULT nextval('resupply_order_id_seq1'::regclass);
+CREATE SEQUENCE tb_warehouse_fl_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
 
+
+ALTER TABLE winepro.tb_warehouse_fl_id_seq OWNER TO postgres;
 
 --
--- TOC entry 1892 (class 2604 OID 47158)
--- Name: id; Type: DEFAULT; Schema: labs; Owner: -
+-- TOC entry 2068 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: tb_warehouse_fl_id_seq; Type: SEQUENCE OWNED BY; Schema: winepro; Owner: postgres
 --
 
-ALTER TABLE ONLY resupply_order_product ALTER COLUMN id SET DEFAULT nextval('resupply_order_product_id_seq'::regclass);
-
-
---
--- TOC entry 2018 (class 0 OID 47116)
--- Dependencies: 169
--- Data for Name: availability; Type: TABLE DATA; Schema: labs; Owner: -
---
-
+ALTER SEQUENCE tb_warehouse_fl_id_seq OWNED BY tb_warehouse.fl_id;
 
 
 --
--- TOC entry 2019 (class 0 OID 47120)
--- Dependencies: 170
--- Data for Name: order; Type: TABLE DATA; Schema: labs; Owner: -
+-- TOC entry 184 (class 1259 OID 24704)
+-- Name: tb_wine; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
 --
 
-INSERT INTO "order" VALUES (1, 9);
+CREATE TABLE tb_wine (
+    fl_id integer NOT NULL,
+    fl_production_date date DEFAULT '2014-01-01'::date NOT NULL,
+    fl_type character varying(20) DEFAULT 'Red Wine'::character varying NOT NULL,
+    fl_price numeric NOT NULL,
+    fl_weight real NOT NULL,
+    fl_image_url character varying(200),
+    fl_name character varying(100) NOT NULL
+);
+
+
+ALTER TABLE winepro.tb_wine OWNER TO postgres;
+
+--
+-- TOC entry 185 (class 1259 OID 24709)
+-- Name: tb_wine_fl_id_seq; Type: SEQUENCE; Schema: winepro; Owner: postgres
+--
+
+CREATE SEQUENCE tb_wine_fl_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE winepro.tb_wine_fl_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2069 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: tb_wine_fl_id_seq; Type: SEQUENCE OWNED BY; Schema: winepro; Owner: postgres
+--
+
+ALTER SEQUENCE tb_wine_fl_id_seq OWNED BY tb_wine.fl_id;
 
 
 --
--- TOC entry 2045 (class 0 OID 0)
+-- TOC entry 186 (class 1259 OID 24711)
+-- Name: tb_wine_order; Type: TABLE; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tb_wine_order (
+    fl_id integer NOT NULL,
+    fl_order_id integer NOT NULL,
+    fl_wine_id integer NOT NULL,
+    fl_amount integer NOT NULL,
+    fl_unit_price numeric NOT NULL,
+    fl_status character varying(20) NOT NULL,
+    fl_last_change_date time with time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE winepro.tb_wine_order OWNER TO postgres;
+
+--
+-- TOC entry 187 (class 1259 OID 24714)
+-- Name: tb_wine_order_fl_id_seq; Type: SEQUENCE; Schema: winepro; Owner: postgres
+--
+
+CREATE SEQUENCE tb_wine_order_fl_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE winepro.tb_wine_order_fl_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2070 (class 0 OID 0)
+-- Dependencies: 187
+-- Name: tb_wine_order_fl_id_seq; Type: SEQUENCE OWNED BY; Schema: winepro; Owner: postgres
+--
+
+ALTER SEQUENCE tb_wine_order_fl_id_seq OWNED BY tb_wine_order.fl_id;
+
+
+--
+-- TOC entry 1876 (class 2604 OID 24716)
+-- Name: fl_id; Type: DEFAULT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_address ALTER COLUMN fl_id SET DEFAULT nextval('tb_address_fl_id_seq'::regclass);
+
+
+--
+-- TOC entry 1879 (class 2604 OID 24718)
+-- Name: fl_id; Type: DEFAULT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_inventory ALTER COLUMN fl_id SET DEFAULT nextval('tb_inventory_fl_id_seq'::regclass);
+
+
+--
+-- TOC entry 1885 (class 2604 OID 24875)
+-- Name: fl_id; Type: DEFAULT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_order ALTER COLUMN fl_id SET DEFAULT nextval('tb_order_fl_id_seq'::regclass);
+
+
+--
+-- TOC entry 1888 (class 2604 OID 24720)
+-- Name: fl_id; Type: DEFAULT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_payment_info ALTER COLUMN fl_id SET DEFAULT nextval('tb_payment_info_fl_id_seq'::regclass);
+
+
+--
+-- TOC entry 1892 (class 2604 OID 24721)
+-- Name: fl_id; Type: DEFAULT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_transportation_company ALTER COLUMN fl_id SET DEFAULT nextval('tb_transportation_company_fl_id_seq'::regclass);
+
+
+--
+-- TOC entry 1896 (class 2604 OID 24722)
+-- Name: fl_id; Type: DEFAULT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_warehouse ALTER COLUMN fl_id SET DEFAULT nextval('tb_warehouse_fl_id_seq'::regclass);
+
+
+--
+-- TOC entry 1898 (class 2604 OID 24723)
+-- Name: fl_id; Type: DEFAULT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_wine ALTER COLUMN fl_id SET DEFAULT nextval('tb_wine_fl_id_seq'::regclass);
+
+
+--
+-- TOC entry 1900 (class 2604 OID 24724)
+-- Name: fl_id; Type: DEFAULT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_wine_order ALTER COLUMN fl_id SET DEFAULT nextval('tb_wine_order_fl_id_seq'::regclass);
+
+
+--
+-- TOC entry 2038 (class 0 OID 24657)
 -- Dependencies: 171
--- Name: order_id_seq; Type: SEQUENCE SET; Schema: labs; Owner: -
+-- Data for Name: tb_address; Type: TABLE DATA; Schema: winepro; Owner: postgres
 --
 
-SELECT pg_catalog.setval('order_id_seq', 1, true);
+INSERT INTO tb_address VALUES (2, 'Crete', 'Bla bla', '1', '1', 'Heraklion');
+INSERT INTO tb_address VALUES (4, 'Crete', 'Bla bla 2', '2', '2', 'Chania');
+INSERT INTO tb_address VALUES (5, 'Crete', 'Bla bla 3', '3', '3', 'Rethimno');
+INSERT INTO tb_address VALUES (6, 'Crete', 'Bla bla 4', '4', '4', 'Athens');
 
 
 --
--- TOC entry 2046 (class 0 OID 0)
+-- TOC entry 2071 (class 0 OID 0)
 -- Dependencies: 172
--- Name: order_order_id_seq; Type: SEQUENCE SET; Schema: labs; Owner: -
+-- Name: tb_address_fl_id_seq; Type: SEQUENCE SET; Schema: winepro; Owner: postgres
 --
 
-SELECT pg_catalog.setval('order_order_id_seq', 13, true);
+SELECT pg_catalog.setval('tb_address_fl_id_seq', 6, true);
 
 
 --
--- TOC entry 2022 (class 0 OID 47127)
+-- TOC entry 2040 (class 0 OID 24667)
 -- Dependencies: 173
--- Data for Name: order_product; Type: TABLE DATA; Schema: labs; Owner: -
+-- Data for Name: tb_inventory; Type: TABLE DATA; Schema: winepro; Owner: postgres
 --
 
+INSERT INTO tb_inventory VALUES (2, 3, 27, 1, 23);
+INSERT INTO tb_inventory VALUES (3, 4, 12, 1, 38);
+INSERT INTO tb_inventory VALUES (4, 5, 30, 1, 20);
+INSERT INTO tb_inventory VALUES (5, 6, 45, 1, 5);
+INSERT INTO tb_inventory VALUES (7, 3, 32, 2, 18);
+INSERT INTO tb_inventory VALUES (8, 4, 17, 2, 33);
+INSERT INTO tb_inventory VALUES (10, 5, 40, 2, 10);
+INSERT INTO tb_inventory VALUES (11, 6, 28, 2, 22);
+INSERT INTO tb_inventory VALUES (12, 2, 43, 3, 7);
+INSERT INTO tb_inventory VALUES (14, 3, 38, 3, 12);
+INSERT INTO tb_inventory VALUES (15, 4, 50, 3, 0);
+INSERT INTO tb_inventory VALUES (16, 5, 48, 3, 2);
+INSERT INTO tb_inventory VALUES (17, 6, 21, 3, 29);
+INSERT INTO tb_inventory VALUES (18, 2, 45, 4, 5);
+INSERT INTO tb_inventory VALUES (19, 3, 45, 4, 5);
+INSERT INTO tb_inventory VALUES (20, 4, 45, 4, 5);
+INSERT INTO tb_inventory VALUES (21, 5, 45, 4, 5);
+INSERT INTO tb_inventory VALUES (22, 6, 45, 4, 5);
+INSERT INTO tb_inventory VALUES (6, 2, 8, 2, 42);
+INSERT INTO tb_inventory VALUES (1, 2, 30, 1, 20);
 
 
 --
--- TOC entry 2047 (class 0 OID 0)
+-- TOC entry 2072 (class 0 OID 0)
 -- Dependencies: 174
--- Name: order_product_id_seq; Type: SEQUENCE SET; Schema: labs; Owner: -
+-- Name: tb_inventory_fl_id_seq; Type: SEQUENCE SET; Schema: winepro; Owner: postgres
 --
 
-SELECT pg_catalog.setval('order_product_id_seq', 1, false);
+SELECT pg_catalog.setval('tb_inventory_fl_id_seq', 22, true);
 
 
 --
--- TOC entry 2024 (class 0 OID 47132)
+-- TOC entry 2042 (class 0 OID 24674)
 -- Dependencies: 175
--- Data for Name: product; Type: TABLE DATA; Schema: labs; Owner: -
+-- Data for Name: tb_order; Type: TABLE DATA; Schema: winepro; Owner: postgres
 --
 
-INSERT INTO product VALUES (7, 'SDRW-08D2S-U Lite 8X External SLIM DVD Writer', 'ASUS', 0.300000012, 32, 'asus2.jpg');
-INSERT INTO product VALUES (4, 'ELITE RC-430 500W MidT ATX Case', 'COOLER MASTER ', 1.39999998, 174, 'cooler2.jpg');
-INSERT INTO product VALUES (3, 'HAF 912 ADVANCE GX 80PLUS 750W MidT ATX Case', 'COOLER MASTER ', 1.20000005, 74, 'cooler1.jpg');
-INSERT INTO product VALUES (8, 'GTX670 DirectCU II GDDR5 4GB 256Bit Nvidia GeForce DX11.1 Graphic Card', 'ASUS', 0.400000006, 473, 'asus1.jpg');
-INSERT INTO product VALUES (12, 'F5 V-TRACK KABLOLU GAMER MOUSE - BLACK', 'A4 TECH', 0.400000006, 20, 'a4tech1.jpg');
-INSERT INTO product VALUES (13, 'GE60 NOTEBOOK CORE I7 2.40 GHZ-16GB-1TB-15.6-2GB-W8 Notebook', 'MSI', 3.20000005, 1285, 'msi1.jpg');
-INSERT INTO product VALUES (15, 'Core i7 4770K Soket 1150 3.5GHz 8MB Cache 22nm CPU', 'INTEL', 0.200000003, 335, 'intel1.jpg');
-INSERT INTO product VALUES (16, 'X3000 300MBPS KABLOSUZ-N 4 PORT ADSL2+ MODEM', 'LINKSYS', 0.349999994, 81, 'linksys1.jpg');
-INSERT INTO product VALUES (9, '3.5 inch 1TB Barracuda Sata 3.0 64MB Cache 7200Rpm Harddisk', 'SEAGATE', 0.699999988, 62, 'seagate1.jpg');
-INSERT INTO product VALUES (10, '27 inch S27C750P Wide Srceen LED Monitor', 'SAMSUNG', 1.79999995, 391, 'samsung1.jpg');
 
 
 --
--- TOC entry 2048 (class 0 OID 0)
+-- TOC entry 2073 (class 0 OID 0)
 -- Dependencies: 176
--- Name: product_id_seq; Type: SEQUENCE SET; Schema: labs; Owner: -
+-- Name: tb_order_fl_id_seq; Type: SEQUENCE SET; Schema: winepro; Owner: postgres
 --
 
-SELECT pg_catalog.setval('product_id_seq', 16, true);
+SELECT pg_catalog.setval('tb_order_fl_id_seq', 1, false);
 
 
 --
--- TOC entry 2026 (class 0 OID 47137)
+-- TOC entry 2044 (class 0 OID 24684)
 -- Dependencies: 177
--- Data for Name: resupply_order; Type: TABLE DATA; Schema: labs; Owner: -
+-- Data for Name: tb_payment_info; Type: TABLE DATA; Schema: winepro; Owner: postgres
 --
 
 
 
 --
--- TOC entry 2049 (class 0 OID 0)
+-- TOC entry 2074 (class 0 OID 0)
 -- Dependencies: 178
--- Name: resupply_order_id_seq; Type: SEQUENCE SET; Schema: labs; Owner: -
+-- Name: tb_payment_info_fl_id_seq; Type: SEQUENCE SET; Schema: winepro; Owner: postgres
 --
 
-SELECT pg_catalog.setval('resupply_order_id_seq', 4, true);
+SELECT pg_catalog.setval('tb_payment_info_fl_id_seq', 1, false);
 
 
 --
--- TOC entry 2050 (class 0 OID 0)
+-- TOC entry 2046 (class 0 OID 24689)
 -- Dependencies: 179
--- Name: resupply_order_id_seq1; Type: SEQUENCE SET; Schema: labs; Owner: -
+-- Data for Name: tb_transportation_company; Type: TABLE DATA; Schema: winepro; Owner: postgres
 --
 
-SELECT pg_catalog.setval('resupply_order_id_seq1', 1, false);
 
 
 --
--- TOC entry 2029 (class 0 OID 47144)
+-- TOC entry 2075 (class 0 OID 0)
 -- Dependencies: 180
--- Data for Name: resupply_order_product; Type: TABLE DATA; Schema: labs; Owner: -
+-- Name: tb_transportation_company_fl_id_seq; Type: SEQUENCE SET; Schema: winepro; Owner: postgres
 --
 
+SELECT pg_catalog.setval('tb_transportation_company_fl_id_seq', 1, false);
 
 
 --
--- TOC entry 2051 (class 0 OID 0)
+-- TOC entry 2048 (class 0 OID 24694)
 -- Dependencies: 181
--- Name: resupply_order_product_id_seq; Type: SEQUENCE SET; Schema: labs; Owner: -
+-- Data for Name: tb_user; Type: TABLE DATA; Schema: winepro; Owner: postgres
 --
 
-SELECT pg_catalog.setval('resupply_order_product_id_seq', 1, false);
+INSERT INTO tb_user VALUES ('admin', 'admin', true, 'admin@alaz.biz', 'Admin', 'The', 'Almighty', 'ADMIN');
 
 
 --
--- TOC entry 2031 (class 0 OID 47149)
+-- TOC entry 2049 (class 0 OID 24699)
 -- Dependencies: 182
--- Data for Name: user; Type: TABLE DATA; Schema: labs; Owner: -
+-- Data for Name: tb_warehouse; Type: TABLE DATA; Schema: winepro; Owner: postgres
 --
 
-INSERT INTO "user" VALUES ('admin', 'admin', true, 'admin@alaz.biz', 'Admin', 'The', 'Almighty');
-
-
---
--- TOC entry 1896 (class 2606 OID 47161)
--- Name: availability_pkey; Type: CONSTRAINT; Schema: labs; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY availability
-    ADD CONSTRAINT availability_pkey PRIMARY KEY (product_id);
+INSERT INTO tb_warehouse VALUES (1, 2, 'Heraklion Warehouse');
+INSERT INTO tb_warehouse VALUES (2, 4, 'Chania Warehouse');
+INSERT INTO tb_warehouse VALUES (4, 6, 'Athens Warehouse');
+INSERT INTO tb_warehouse VALUES (3, 5, 'Rethimno Warehouse');
 
 
 --
--- TOC entry 1898 (class 2606 OID 47163)
--- Name: order_pkey; Type: CONSTRAINT; Schema: labs; Owner: -; Tablespace: 
+-- TOC entry 2076 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: tb_warehouse_fl_id_seq; Type: SEQUENCE SET; Schema: winepro; Owner: postgres
 --
 
-ALTER TABLE ONLY "order"
-    ADD CONSTRAINT order_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 1900 (class 2606 OID 47165)
--- Name: order_product_pkey; Type: CONSTRAINT; Schema: labs; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY order_product
-    ADD CONSTRAINT order_product_pkey PRIMARY KEY (id);
+SELECT pg_catalog.setval('tb_warehouse_fl_id_seq', 4, true);
 
 
 --
--- TOC entry 1908 (class 2606 OID 47167)
--- Name: pk_tb_user_name; Type: CONSTRAINT; Schema: labs; Owner: -; Tablespace: 
+-- TOC entry 2051 (class 0 OID 24704)
+-- Dependencies: 184
+-- Data for Name: tb_wine; Type: TABLE DATA; Schema: winepro; Owner: postgres
 --
 
-ALTER TABLE ONLY "user"
-    ADD CONSTRAINT pk_tb_user_name PRIMARY KEY (name);
-
-
---
--- TOC entry 1902 (class 2606 OID 47169)
--- Name: product_pkey; Type: CONSTRAINT; Schema: labs; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY product
-    ADD CONSTRAINT product_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 1904 (class 2606 OID 47171)
--- Name: resupply_order_pkey; Type: CONSTRAINT; Schema: labs; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY resupply_order
-    ADD CONSTRAINT resupply_order_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 1906 (class 2606 OID 47173)
--- Name: resupply_order_product_pkey; Type: CONSTRAINT; Schema: labs; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY resupply_order_product
-    ADD CONSTRAINT resupply_order_product_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 1909 (class 2606 OID 47174)
--- Name: availability_product_id_fkey; Type: FK CONSTRAINT; Schema: labs; Owner: -
---
-
-ALTER TABLE ONLY availability
-    ADD CONSTRAINT availability_product_id_fkey FOREIGN KEY (product_id) REFERENCES product(id);
+INSERT INTO tb_wine VALUES (26, '2014-01-01', 'White Wine', 11.00, 1.10000002, 'MacMurray.png', 'MacMurray');
+INSERT INTO tb_wine VALUES (28, '2014-01-01', 'White Wine', 10.00, 1, 'Maso Canali.png', 'Maso Canali');
+INSERT INTO tb_wine VALUES (5, '2010-01-01', 'White Champagne', 15.00, 1.5, 'Andre.png', 'Andre');
+INSERT INTO tb_wine VALUES (6, '2011-01-01', 'White Champagne', 20.00, 2, 'Ballatore.png', 'Ballatore');
+INSERT INTO tb_wine VALUES (8, '2011-01-01', 'White Wine', 14.00, 1.39999998, 'Bella Sera.png', 'Bella Sera');
+INSERT INTO tb_wine VALUES (9, '2013-01-01', 'Red Wine', 11.00, 1.10000002, 'Black Swan.png', 'Black Swan');
+INSERT INTO tb_wine VALUES (10, '2013-01-01', 'Red Wine', 12.00, 1.20000005, 'Burlwood.png', 'Burlwood');
+INSERT INTO tb_wine VALUES (11, '2007-01-01', 'Brandy', 24.00, 2.4000001, 'Cognac.png', 'Cognac');
+INSERT INTO tb_wine VALUES (13, '2011-01-01', 'White Wine', 13.00, 1.29999995, 'Copperidge.png', 'Copperidge');
+INSERT INTO tb_wine VALUES (14, '2010-01-01', 'Rosé', 17.00, 1.70000005, 'E & J Gallo No. Sonoma Estate.png', 'E & J Gallo No. Sonoma Estate');
+INSERT INTO tb_wine VALUES (16, '2007-01-01', 'Brandy', 24.00, 2.4000001, 'E. & J. VS.png', 'E. & J. VS');
+INSERT INTO tb_wine VALUES (17, '2008-01-01', 'Brandy', 22.00, 2.20000005, 'E. & J. VSOP.png', 'E. & J. VSOP');
+INSERT INTO tb_wine VALUES (18, '2010-01-01', 'Red Wine', 14.00, 1.39999998, 'Ecco Domani.png', 'Ecco Domani');
+INSERT INTO tb_wine VALUES (19, '2009-01-01', 'Red Wine', 16.00, 1.60000002, 'Frei Bros. Reserve.png', 'Frei Bros. Reserve');
+INSERT INTO tb_wine VALUES (20, '2010-01-01', 'Red Wine', 15.00, 1.5, 'Gallo of Sonoma.png', 'Gallo of Sonoma');
+INSERT INTO tb_wine VALUES (21, '2008-01-01', 'Red Wine', 18.00, 1.79999995, 'GOS Single Vineyard.png', 'GOS Single Vineyard');
+INSERT INTO tb_wine VALUES (22, '2007-01-01', 'Red Wine', 19.00, 1.89999998, 'Indigo Hills.png', 'Indigo Hills');
+INSERT INTO tb_wine VALUES (25, '2001-01-01', 'Rosé', 21.00, 2.0999999, 'Livingston Cellars.png', 'Livingston Cellars');
+INSERT INTO tb_wine VALUES (27, '2012-01-01', 'White Wine', 12.00, 1.20000005, 'Marcelina.png', 'Marcelina');
+INSERT INTO tb_wine VALUES (29, '2011-01-01', 'Red Wine', 15.00, 1.5, 'McWilliams Hanwood Estate.png', 'McWilliams Hanwood Estate');
+INSERT INTO tb_wine VALUES (30, '2007-01-01', 'Brandy', 19.00, 1.89999998, 'Patriarch.png', 'Patriarch');
+INSERT INTO tb_wine VALUES (31, '2011-01-01', 'Red Wine', 15.00, 1.5, 'Rancho Zabaco.png', 'Rancho Zabaco');
+INSERT INTO tb_wine VALUES (32, '2010-01-01', 'White Wine', 17.00, 1.70000005, 'Redwood Creek.png', 'Redwood Creek');
+INSERT INTO tb_wine VALUES (33, '2001-01-01', 'Brandy', 23.00, 2.29999995, 'Single Vintage.png', 'Single Vintage');
+INSERT INTO tb_wine VALUES (34, '2012-01-01', 'White Wine', 14.00, 1.39999998, 'Timberwood.png', 'Timberwood');
+INSERT INTO tb_wine VALUES (36, '2010-01-01', 'White Wine', 16.00, 1.60000002, 'Turning Leaf Coastal.png', 'Turning Leaf Coastal');
+INSERT INTO tb_wine VALUES (37, '2009-01-01', 'Red Wine', 18.00, 1.79999995, 'Turning Leaf.png', 'Turning Leaf');
+INSERT INTO tb_wine VALUES (38, '2009-01-01', 'Rosé', 17.00, 1.70000005, 'Wild Vines.png', 'Wild Vines');
+INSERT INTO tb_wine VALUES (3, '2013-01-01', 'Red Wine', 12.00, 1.20000005, 'Alcott Ridge.png', 'Alcott Ridge');
+INSERT INTO tb_wine VALUES (2, '2013-01-01', 'White Wine', 11.00, 1.10000002, 'Accents.png', 'Accents');
+INSERT INTO tb_wine VALUES (4, '2011-01-01', 'Red Wine', 10.00, 1, 'Anapamu.png', 'Anapamu');
+INSERT INTO tb_wine VALUES (35, '2009-01-01', 'White Champagne', 18.00, 1.79999995, 'Totts.png', 'Totts');
 
 
 --
--- TOC entry 1910 (class 2606 OID 47179)
--- Name: order_product_order_id_fkey; Type: FK CONSTRAINT; Schema: labs; Owner: -
+-- TOC entry 2077 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: tb_wine_fl_id_seq; Type: SEQUENCE SET; Schema: winepro; Owner: postgres
 --
 
-ALTER TABLE ONLY order_product
-    ADD CONSTRAINT order_product_order_id_fkey FOREIGN KEY (order_id) REFERENCES "order"(id);
-
-
---
--- TOC entry 1911 (class 2606 OID 47184)
--- Name: resupply_order_product_resupply_order_id_fkey; Type: FK CONSTRAINT; Schema: labs; Owner: -
---
-
-ALTER TABLE ONLY resupply_order_product
-    ADD CONSTRAINT resupply_order_product_resupply_order_id_fkey FOREIGN KEY (resupply_order_id) REFERENCES resupply_order(id);
+SELECT pg_catalog.setval('tb_wine_fl_id_seq', 38, true);
 
 
 --
--- TOC entry 2038 (class 0 OID 0)
--- Dependencies: 7
--- Name: public; Type: ACL; Schema: -; Owner: -
+-- TOC entry 2053 (class 0 OID 24711)
+-- Dependencies: 186
+-- Data for Name: tb_wine_order; Type: TABLE DATA; Schema: winepro; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2078 (class 0 OID 0)
+-- Dependencies: 187
+-- Name: tb_wine_order_fl_id_seq; Type: SEQUENCE SET; Schema: winepro; Owner: postgres
+--
+
+SELECT pg_catalog.setval('tb_wine_order_fl_id_seq', 1, false);
+
+
+--
+-- TOC entry 1916 (class 2606 OID 24726)
+-- Name: pk_tb_user_fl_name; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_user
+    ADD CONSTRAINT pk_tb_user_fl_name PRIMARY KEY (name);
+
+
+--
+-- TOC entry 1908 (class 2606 OID 24877)
+-- Name: pkey_order_id; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_order
+    ADD CONSTRAINT pkey_order_id PRIMARY KEY (fl_id);
+
+
+--
+-- TOC entry 1903 (class 2606 OID 24730)
+-- Name: pkey_tb_address_fl_id; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_address
+    ADD CONSTRAINT pkey_tb_address_fl_id PRIMARY KEY (fl_id);
+
+
+--
+-- TOC entry 1905 (class 2606 OID 24734)
+-- Name: pkey_tb_inventory_fl_id; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_inventory
+    ADD CONSTRAINT pkey_tb_inventory_fl_id PRIMARY KEY (fl_id);
+
+
+--
+-- TOC entry 1910 (class 2606 OID 24736)
+-- Name: pkey_tb_payment_info_fl_id; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_payment_info
+    ADD CONSTRAINT pkey_tb_payment_info_fl_id PRIMARY KEY (fl_id);
+
+
+--
+-- TOC entry 1912 (class 2606 OID 24738)
+-- Name: pkey_tb_transportation_company_fl_id; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_transportation_company
+    ADD CONSTRAINT pkey_tb_transportation_company_fl_id PRIMARY KEY (fl_id);
+
+
+--
+-- TOC entry 1918 (class 2606 OID 24740)
+-- Name: pkey_tb_warehouse_fl_id; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_warehouse
+    ADD CONSTRAINT pkey_tb_warehouse_fl_id PRIMARY KEY (fl_id);
+
+
+--
+-- TOC entry 1924 (class 2606 OID 24742)
+-- Name: pkey_tb_wine_order_fl_id; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_wine_order
+    ADD CONSTRAINT pkey_tb_wine_order_fl_id PRIMARY KEY (fl_id);
+
+
+--
+-- TOC entry 1922 (class 2606 OID 24744)
+-- Name: pkey_wine_id; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_wine
+    ADD CONSTRAINT pkey_wine_id PRIMARY KEY (fl_id);
+
+
+--
+-- TOC entry 1914 (class 2606 OID 24795)
+-- Name: unq_tb_transportation_company_fl_name; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_transportation_company
+    ADD CONSTRAINT unq_tb_transportation_company_fl_name UNIQUE (fl_name);
+
+
+--
+-- TOC entry 1920 (class 2606 OID 24788)
+-- Name: unq_tb_warehouse_fl_name; Type: CONSTRAINT; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tb_warehouse
+    ADD CONSTRAINT unq_tb_warehouse_fl_name UNIQUE (fl_name);
+
+
+--
+-- TOC entry 1906 (class 1259 OID 24978)
+-- Name: unq_idx_fl_wine_id_fl_warehouse_id; Type: INDEX; Schema: winepro; Owner: postgres; Tablespace: 
+--
+
+CREATE UNIQUE INDEX unq_idx_fl_wine_id_fl_warehouse_id ON tb_inventory USING btree (fl_wine_id, fl_warehouse_id);
+
+
+--
+-- TOC entry 1928 (class 2606 OID 24782)
+-- Name: fkey_tb_address_fl_address_id; Type: FK CONSTRAINT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_warehouse
+    ADD CONSTRAINT fkey_tb_address_fl_address_id FOREIGN KEY (fl_address_id) REFERENCES tb_address(fl_id);
+
+
+--
+-- TOC entry 1925 (class 2606 OID 24746)
+-- Name: fkey_tb_inventory_fl_wine_id_fl_id; Type: FK CONSTRAINT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_inventory
+    ADD CONSTRAINT fkey_tb_inventory_fl_wine_id_fl_id FOREIGN KEY (fl_wine_id) REFERENCES tb_wine(fl_id);
+
+
+--
+-- TOC entry 1927 (class 2606 OID 24892)
+-- Name: fkey_tb_user_name; Type: FK CONSTRAINT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_order
+    ADD CONSTRAINT fkey_tb_user_name FOREIGN KEY (fl_customer_name) REFERENCES tb_user(name);
+
+
+--
+-- TOC entry 1926 (class 2606 OID 24887)
+-- Name: fkey_tb_warehouse_id; Type: FK CONSTRAINT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_inventory
+    ADD CONSTRAINT fkey_tb_warehouse_id FOREIGN KEY (fl_warehouse_id) REFERENCES tb_warehouse(fl_id);
+
+
+--
+-- TOC entry 1930 (class 2606 OID 24878)
+-- Name: fkey_tb_wine_order_fl_order_id; Type: FK CONSTRAINT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_wine_order
+    ADD CONSTRAINT fkey_tb_wine_order_fl_order_id FOREIGN KEY (fl_order_id) REFERENCES tb_order(fl_id);
+
+
+--
+-- TOC entry 1929 (class 2606 OID 24756)
+-- Name: fkey_tb_wine_order_fl_wine_id; Type: FK CONSTRAINT; Schema: winepro; Owner: postgres
+--
+
+ALTER TABLE ONLY tb_wine_order
+    ADD CONSTRAINT fkey_tb_wine_order_fl_wine_id FOREIGN KEY (fl_wine_id) REFERENCES tb_wine(fl_id);
+
+
+--
+-- TOC entry 2061 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
@@ -583,7 +860,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2014-05-21 03:57:47
+-- Completed on 2014-06-19 00:16:33
 
 --
 -- PostgreSQL database dump complete
