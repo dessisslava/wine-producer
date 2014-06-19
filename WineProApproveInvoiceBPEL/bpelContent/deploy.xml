@@ -7,7 +7,7 @@
     <provide partnerLink="client">
       <service name="imse.uoc.gr:ApproveInvoiceService" port="ApproveInvoicePort"/>
     </provide>
-    <invoke partnerLink="WarehouseReservationPL">
+    <invoke partnerLink="ReservationPL">
       <service name="WineProWsWarehouseInventoryReserve:WineProWsWarehouseInventoryReserve" port="WineProWsWarehouseInventoryReserveSOAP"/>
     </invoke>
   </process>
