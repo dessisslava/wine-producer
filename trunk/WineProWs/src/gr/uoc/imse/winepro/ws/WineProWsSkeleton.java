@@ -14,6 +14,7 @@ import gr.uoc.imse.winepro.service.InventoryService;
 import gr.uoc.imse.winepro.service.WarehouseService;
 import gr.uoc.imse.winepro.service.WineService;
 import gr.uoc.imse.wineprows.GetTotalPriceOfGoodsResponse;
+import gr.uoc.imse.wineprows.GetTotalWeightVolumeResponse;
 import gr.uoc.imse.wineprows.ListAllWinesInBetweenResponse;
 import gr.uoc.imse.wineprows.ListAllWinesResponse;
 import gr.uoc.imse.wineprows.WarehouseInventoryCheckResponse;
@@ -316,6 +317,51 @@ public class WineProWsSkeleton
 			e.printStackTrace();
 		}
 
+		return response;
+	}
+
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param getTotalWeightVolume
+	 * @return getTotalWeightVolumeResponse
+	 */
+	public gr.uoc.imse.wineprows.GetTotalWeightVolumeResponse getTotalWeightVolume (
+			gr.uoc.imse.wineprows.GetTotalWeightVolume getTotalWeightVolume )
+	{
+		System.out.println( "This is getTotalWeightVolume!!!" );
+
+		WineQuantityPairTypeSequence [] wineQuantityPairArray =
+				getTotalWeightVolume.getWineQuantityPairArray().getWineQuantityPairTypeSequence();
+
+		GetTotalWeightVolumeResponse response = new GetTotalWeightVolumeResponse();
+
+		BigDecimal totalWeight = new BigDecimal( 0 );
+		BigDecimal totalVolume = new BigDecimal( 0 );
+		try
+		{
+			for ( int i = 0; i < wineQuantityPairArray.length; i++ )
+			{
+				WineDto wine = this.wineService.findById( wineQuantityPairArray [ i ].getWineId() );
+				if ( wine != null )
+				{
+					totalWeight = totalWeight.add( new BigDecimal( wine.getWeight() ) );
+					totalVolume = totalVolume.add( new BigDecimal( wineQuantityPairArray [ i ].getQuantity() * 2.5 ) );
+				}
+				else
+				{
+					System.out.println( "Unknown wine id !!!!!!!!!!!!!" );
+				}
+			}
+		}
+		catch ( ServiceException e )
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		response.setTotalVolume( totalVolume );
+		response.setTotalWeight( totalWeight );
 		return response;
 	}
 
