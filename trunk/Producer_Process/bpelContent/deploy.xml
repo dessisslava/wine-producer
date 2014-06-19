@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:Perform_Order="http://eclipse.org/bpel/Perform_Order" xmlns:Transportation="http://www.winepro.imse.uoc/Transportation/" xmlns:Warehouse="http://www.winepro.imse.uoc/Warehouse/">
+  <process name="Perform_Order:Perform_Order">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="Perform_Order:Perform_OrderService" port="Perform_OrderPort"/>
+    </provide>
+    <invoke partnerLink="Warehouse">
+      <service name="Warehouse:Warehouse" port="WarehouseSOAP"/>
+    </invoke>
+    <invoke partnerLink="Transportation">
+      <service name="Transportation:Transportation" port="TransportationSOAP"/>
+    </invoke>
+  </process>
+</deploy>
