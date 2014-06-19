@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.winepro.imse.uoc/GrapesProducer"
+	xmlns:tns="http://www.example.org/GrapesProducer"
+	elementFormDefault="qualified"
+	xmlns:Q1="http://www.winepro.imse.uoc/GrapesProducer">
+
+	<complexType name="checkAvailabilityRequest">
+		<sequence>
+			<element name="Grapes_Variety" type="string"></element>
+			<element name="Quantity" type="double"></element>
+			<element name="Delivery_Address" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="checkAvailabilityResponse">
+		<sequence>
+			<element name="isAvailabe" type="boolean"></element>
+			<element name="Available_Quantity" type="double"></element>
+			<element name="Price" type="double"></element>
+			<element name="Delivery_Time" type="int"></element>
+		</sequence>
+	</complexType>
+
+	<element name="checkAvailabilityRequestElement"
+		type="Q1:checkAvailabilityRequest">
+	</element>
+
+	<element name="checkAvailabilityResponseElement"
+		type="Q1:checkAvailabilityResponse">
+	</element>
+
+	<complexType name="placeOrderRequest">
+		<sequence>
+			<element name="Grapes_Variety" type="string"></element>
+			<element name="Quantity" type="double"></element>
+			<element name="Delivery_Address" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="placeOrderResponse">
+		<sequence>
+			<element name="isConfirmed" type="boolean"></element>
+			<element name="Order_Id" type="string"></element>
+			<element name="Order_Date" type="date"></element>
+			<element name="Grapes_Variety" type="string"></element>
+			<element name="Quantity" type="double"></element>
+			<element name="Expected_Delivery_Date" type="date"></element>
+		</sequence>
+	</complexType>
+
+    <element name="placeOrderRequestElement" type="Q1:placeOrderRequest"></element>
+
+    <element name="placeOrderResponseElement" type="Q1:placeOrderResponse"></element>
+
+    <complexType name="listGrapesRequest">
+    	<sequence>
+    		<element name="listAll" type="boolean"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="listGrapesResponse">
+    	<sequence>
+    		<element name="Grapes_Variety" type="string"></element>
+    		<element name="Price" type="string"></element>
+    		<element name="Quantity_Available" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="listGrapesRequestElement" type="Q1:listGrapesRequest"></element>
+
+    <element name="listGrapesResponseElement" type="Q1:listGrapesResponse"></element>
+
+    <complexType name="getOrderStatusRequest">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    		<element name="Order_Date" type="date"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="getOrderStatusResponse">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    		<element name="Order_Date" type="date"></element>
+    		<element name="Order_Status" type="string"></element>
+    		<element name="Transportation_Company" type="string"></element>
+    		<element name="Expected_Delivery_Date" type="date"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="getOrderStatusRequestElement" type="Q1:getOrderStatusRequest"></element>
+
+    <element name="getOrderStatusResponseElement" type="Q1:getOrderStatusResponse"></element>
+
+    <complexType name="cancelOrderRequest">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="cancelOrderResponse">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    		<element name="Is_Cancelled" type="boolean"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="changeOrderRequest">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    		<element name="Grapes_Variety" type="string"></element>
+    		<element name="Quantity" type="string"></element>
+    		<element name="Delivery_Address" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="changeOrderResponse">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    		<element name="Is_Order_Changed" type="boolean"></element>
+    		<element name="Order_Date" type="date"></element>
+    		<element name="Grapes_Variety" type="string"></element>
+    		<element name="Quantity" type="double"></element>
+    	</sequence>
+    </complexType>
+    
+    <element name="cancelOrderRequestElement" type="Q1:cancelOrderRequest"></element>
+
+    <element name="cancelOrderResponseElement" type="Q1:cancelOrderResponse"></element>
+
+    <element name="changeOrderResponseElement" type="Q1:changeOrderResponse"></element>
+
+    <element name="changeOrderRequestElement" type="Q1:changeOrderRequest"></element>
+</schema>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.winepro.imse.uoc/Transportation_Schema" xmlns:tns="http://www.winepro.imse.uoc/Transportation_Schema" elementFormDefault="qualified">
+
+    <complexType name="getCostRequest">
+    	<sequence>
+    		<element name="Sender_Address" type="string"></element>
+    		<element name="Delivery_Address" type="string"></element>
+    		<element name="Quantity" type="double"></element>
+    		<element name="delivery_mode" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="getCostResponse">
+    	<sequence>
+    		<element name="delivery_price" type="double"></element>
+    		<element name="delivery_time" type="int"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="deliverGrapesRequest">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    		<element name="Grapes_Variety" type="string"></element>
+    		<element name="Sender_Address" type="string"></element>
+    		<element name="Wine_Company" type="string"></element>
+    		<element name="Delivery_Address" type="string"></element>
+    		<element name="Quantity" type="double"></element>
+    		<element name="Delivery_Mode" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="deliverGrapesResponse">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    		<element name="Confirmation" type="boolean"></element>
+    		<element name="Delivery_Date" type="date"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="getDeliveryStatusRequest">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="getDeliveryStatusResponse">
+    	<sequence>
+    		<element name="Order_Id" type="string"></element>
+    		<element name="Status_Delivery" type="string"></element>
+    		<element name="Delivery_Date" type="date"></element>
+    		<element name="Wine_Company" type="string"></element>
+    		<element name="Quantity" type="boolean"></element>
+    		<element name="Grapes_Variety" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="deliverGrapesRequestElement" type="tns:deliverGrapesRequest"></element>
+
+    <element name="deliverGrapesResponseElement" type="tns:deliverGrapesResponse"></element>
+
+    <element name="getCostRequestElement" type="tns:getCostRequest"></element>
+
+    <element name="getCostResponseElement" type="tns:getCostResponse"></element>
+
+    <element name="getDeliveryStatusRequestElement" type="tns:getDeliveryStatusRequest"></element>
+
+    <element name="getDeliveryStatusResponseElement" type="tns:getDeliveryStatusResponse"></element>
+</schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.winepro.imse.uoc/Warehouse" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.winepro.imse.uoc/Warehouse">
+    <complexType name="reserveContentRequest">
+        <sequence>
+            <element name="Order_Id" type="string"/>
+            <element name="Grapes_Variety" type="string"/>
+            <element name="Quantity" type="double"/>
+        </sequence>
+    </complexType>
+    <complexType name="reserveContentResponse">
+        <sequence>
+            <element name="Confirmation" type="boolean"/>
+        </sequence>
+    </complexType>
+    <complexType name="checkAvailabilityRequest">
+        <sequence>
+            <element name="Grapes_Variety" type="string"/>
+            <element name="Quantity" type="double"/>
+        </sequence>
+    </complexType>
+    <complexType name="checkAvailabilityResponse">
+        <sequence>
+            <element name="Confirmation" type="boolean"/>
+        </sequence>
+    </complexType>
+    <element name="reserverContentRequestElement" type="tns:reserveContentRequest"/>
+    <element name="reserveContentResponseElement" type="tns:reserveContentResponse"/>
+    <element name="checkAvailabilityRequestElement" type="tns:checkAvailabilityRequest"/>
+    <element name="checkAvailabilityResponseElement" type="tns:checkAvailabilityResponse"/>
+</schema>

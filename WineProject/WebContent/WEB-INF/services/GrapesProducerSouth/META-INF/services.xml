@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) --><serviceGroup>
+    <service name="GrapesProducerSouth">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="uoc.imse.winepro.www.grapesproducersouth.GrapesProducerSouthMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">uoc.imse.winepro.www.grapesproducersouth.GrapesProducerSouthSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="cancelOrder" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.winepro.imse.uoc/GrapesProducerSouth/">
+            <actionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/cancelOrder</actionMapping>
+            <outputActionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/GrapesProducerSouth/cancelOrderResponse</outputActionMapping>
+        </operation>
+        <operation name="listGrapes" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.winepro.imse.uoc/GrapesProducerSouth/">
+            <actionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/listGrapes</actionMapping>
+            <outputActionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/GrapesProducerSouth/listGrapesResponse</outputActionMapping>
+        </operation>
+        <operation name="checkAvailability" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.winepro.imse.uoc/GrapesProducerSouth/">
+            <actionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/checkAvailability</actionMapping>
+            <outputActionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/GrapesProducerSouth/checkAvailabilityResponse</outputActionMapping>
+        </operation>
+        <operation name="placeOrder" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.winepro.imse.uoc/GrapesProducerSouth/">
+            <actionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/placeOrder</actionMapping>
+            <outputActionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/GrapesProducerSouth/placeOrderResponse</outputActionMapping>
+        </operation>
+        <operation name="getOrderStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.winepro.imse.uoc/GrapesProducerSouth/">
+            <actionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/getOrderStatus</actionMapping>
+            <outputActionMapping>http://www.winepro.imse.uoc/GrapesProducerSouth/GrapesProducerSouth/getOrderStatusResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

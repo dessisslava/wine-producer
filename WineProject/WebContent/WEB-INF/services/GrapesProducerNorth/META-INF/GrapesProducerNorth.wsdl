@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GrapesProducerNorth" targetNamespace="http://www.winepro.imse.uoc/GrapesProducerNorth/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.winepro.imse.uoc/GrapesProducerNorth/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.winepro.imse.uoc/GrapesProducer" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.winepro.imse.uoc/GrapesProducerNorth/" xmlns:Q1="http://www.winepro.imse.uoc/GrapesProducer">
+    	<xsd:import namespace="http://www.winepro.imse.uoc/GrapesProducer" schemaLocation="GrapesProducer.xsd"/>
+    	<xsd:element name="checkAvailability">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="checkAvailabilityResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="placeOrder">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="placeOrderResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="listGrapes">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="listGrapesResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="getOrderStatus">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="getOrderStatusResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="cancelOrder">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="cancelOrderResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="http://www.winepro.imse.uoc/GrapesProducer" schemaLocation="GrapesProducer.xsd">
+    	</xsd:import></xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getOrderStatusRequest">
+    <wsdl:part name="parameters" element="xsd1:getOrderStatusRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkAvailabilityRequest">
+    <wsdl:part name="parameters" element="xsd1:checkAvailabilityRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelOrderResponse">
+    <wsdl:part name="parameters" element="xsd1:cancelOrderResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelOrderRequest">
+    <wsdl:part name="parameters" element="xsd1:cancelOrderRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="placeOrderResponse">
+    <wsdl:part name="parameters" element="xsd1:placeOrderResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="placeOrderRequest">
+    <wsdl:part name="parameters" element="xsd1:placeOrderRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkAvailabilityResponse">
+    <wsdl:part name="parameters" element="xsd1:checkAvailabilityResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listGrapesResponse">
+    <wsdl:part name="parameters" element="xsd1:listGrapesResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listGrapesRequest">
+    <wsdl:part name="parameters" element="xsd1:listGrapesRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOrderStatusResponse">
+    <wsdl:part name="parameters" element="xsd1:getOrderStatusResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GrapesProducerNorth">
+    <wsdl:operation name="checkAvailability">
+      <wsdl:input message="tns:checkAvailabilityRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:checkAvailabilityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="placeOrder">
+      <wsdl:input message="tns:placeOrderRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:placeOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listGrapes">
+      <wsdl:input message="tns:listGrapesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:listGrapesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderStatus">
+      <wsdl:input message="tns:getOrderStatusRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getOrderStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelOrder">
+      <wsdl:input message="tns:cancelOrderRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:cancelOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GrapesProducerNorthSOAP" type="tns:GrapesProducerNorth">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="checkAvailability">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/GrapesProducerNorth/checkAvailability"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="placeOrder">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/GrapesProducerNorth/placeOrder"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listGrapes">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/GrapesProducerNorth/listGrapes"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderStatus">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/GrapesProducerNorth/getOrderStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelOrder">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/GrapesProducerNorth/cancelOrder"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GrapesProducerNorth">
+    <wsdl:port name="GrapesProducerNorthSOAP" binding="tns:GrapesProducerNorthSOAP">
+      <soap:address location="http://localhost:8080/WineProject/services/GrapesProducerNorth"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
