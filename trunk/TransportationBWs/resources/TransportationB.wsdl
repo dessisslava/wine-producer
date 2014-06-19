@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TransportationB" targetNamespace="http://imse.uoc.gr/TransportationB/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://imse.uoc.gr/TransportationB/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://imse.uoc.gr/TransportationB/">
+      <xsd:element name="getTransportationCost">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="warehouseCity" type="xsd:string"/>
+          	<xsd:element name="destinationCity" type="xsd:string"/>
+          	<xsd:element name="totalVolume" type="xsd:decimal"/>
+          	<xsd:element name="totalWeight" type="xsd:decimal"/>
+          	<xsd:element name="urgentDelivery" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTransportationCostResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="transportationCost" type="xsd:decimal"/>
+          	<xsd:element name="expectedDateOfDelivery" type="xsd:date"/>
+          	<xsd:element name="token" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="checkStatusOfDelivery">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="token" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="checkStatusOfDeliveryResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="status" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getTransportationCostResponse">
+    <wsdl:part name="parameters" element="tns:getTransportationCostResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkStatusOfDeliveryResponse">
+    <wsdl:part name="parameters" element="tns:checkStatusOfDeliveryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkStatusOfDeliveryRequest">
+    <wsdl:part name="parameters" element="tns:checkStatusOfDelivery">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTransportationCostRequest">
+    <wsdl:part name="parameters" element="tns:getTransportationCost">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TransportationB">
+    <wsdl:operation name="getTransportationCost">
+      <wsdl:input message="tns:getTransportationCostRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getTransportationCostResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkStatusOfDelivery">
+      <wsdl:input message="tns:checkStatusOfDeliveryRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:checkStatusOfDeliveryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransportationBSOAP" type="tns:TransportationB">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getTransportationCost">
+      <soap:operation soapAction="http://imse.uoc.gr/TransportationB/getTransportationCost"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransportationB">
+    <wsdl:port name="TransportationBSOAP" binding="tns:TransportationBSOAP">
+      <soap:address location="http://localhost:9080/TransportationBWs/services/TransportationBWs"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
