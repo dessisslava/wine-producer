@@ -86,6 +86,23 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+      <xsd:element name="getTotalWeightVolume">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="wineQuantityPairArray" type="Q1:WineQuantityPairType"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTotalWeightVolumeResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="totalVolume" type="xsd:decimal"></xsd:element>
+      			<xsd:element name="totalWeight" type="xsd:decimal"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="listAllWinesRequest">
@@ -118,6 +135,12 @@
   <wsdl:message name="getTotalPriceOfGoodsResponse">
   	<wsdl:part name="parameters" element="tns:getTotalPriceOfGoodsResponse"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="getTotalWeightVolumeRequest">
+  	<wsdl:part name="parameters" element="tns:getTotalWeightVolume"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTotalWeightVolumeResponse">
+  	<wsdl:part name="parameters" element="tns:getTotalWeightVolumeResponse"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="WineProWs">
     <wsdl:operation name="listAllWines">
       <wsdl:input message="tns:listAllWinesRequest"/>
@@ -139,15 +162,17 @@
     	<wsdl:input message="tns:getTotalPriceOfGoodsRequest"></wsdl:input>
     	<wsdl:output message="tns:getTotalPriceOfGoodsResponse"></wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getTotalWeightVolume">
+    	<wsdl:input message="tns:getTotalWeightVolumeRequest"></wsdl:input>
+    	<wsdl:output message="tns:getTotalWeightVolumeResponse"></wsdl:output>
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WineProWsSOAP" type="tns:WineProWs">
 
-  	<soap:binding style="document"
-  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
   	<wsdl:operation name="listAllWines">
 
-  		<soap:operation
-  			soapAction="http://imse.uoc.gr/WineProWs/listAllWines" />
+  		<soap:operation soapAction="http://imse.uoc.gr/WineProWs/listAllWines" />
   		<wsdl:input>
 
   			<soap:body use="literal" />
@@ -159,8 +184,7 @@
   	</wsdl:operation>
   	<wsdl:operation name="listAllWinesInBetween">
 
-  		<soap:operation
-  			soapAction="http://imse.uoc.gr/WineProWs/listAllWinesInBetween" />
+  		<soap:operation soapAction="http://imse.uoc.gr/WineProWs/listAllWinesInBetween" />
   		<wsdl:input>
 
   			<soap:body use="literal" />
@@ -172,8 +196,7 @@
   	</wsdl:operation>
   	<wsdl:operation name="warehouseInventoryCheck">
 
-  		<soap:operation
-  			soapAction="http://imse.uoc.gr/WineProWs/warehouseInventoryCheck" />
+  		<soap:operation soapAction="http://imse.uoc.gr/WineProWs/warehouseInventoryCheck" />
   		<wsdl:input>
 
   			<soap:body use="literal" />
@@ -185,8 +208,7 @@
   	</wsdl:operation>
   	<wsdl:operation name="warehouseInventoryReserve">
 
-  		<soap:operation
-  			soapAction="http://imse.uoc.gr/WineProWs/warehouseInventoryReserve" />
+  		<soap:operation soapAction="http://imse.uoc.gr/WineProWs/warehouseInventoryReserve" />
   		<wsdl:input>
 
   			<soap:body use="literal" />
@@ -198,14 +220,22 @@
   	</wsdl:operation>
   	<wsdl:operation name="getTotalPriceOfGoods">
 
-  		<soap:operation
-  			soapAction="http://imse.uoc.gr/WineProWs/getTotalPriceOfGoods" />
+  		<soap:operation soapAction="http://imse.uoc.gr/WineProWs/getTotalPriceOfGoods" />
   		<wsdl:input>
 
   			<soap:body use="literal" />
   		</wsdl:input>
   		<wsdl:output>
 
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getTotalWeightVolume">
+  		<soap:operation soapAction="http://imse.uoc.gr/WineProWs/getTotalWeightVolume" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>
