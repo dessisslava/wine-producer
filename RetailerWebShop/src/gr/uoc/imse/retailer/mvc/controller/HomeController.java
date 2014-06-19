@@ -1,10 +1,10 @@
 package gr.uoc.imse.retailer.mvc.controller;
 
 import gr.uoc.imse.winepro.service.WineService;
-import gr.uoc.imse.winepro.ws.client.wine.list.WineProWsWineListStub;
-import gr.uoc.imse.winepro.ws.client.wine.list.WineProWsWineListStub.ListAllWines;
-import gr.uoc.imse.winepro.ws.client.wine.list.WineProWsWineListStub.ListAllWinesResponse;
-import gr.uoc.imse.winepro.ws.client.wine.list.WineProWsWineListStub.WineTypeSequence;
+import gr.uoc.imse.winepro.ws.client.WineProWsStub;
+import gr.uoc.imse.winepro.ws.client.WineProWsStub.ListAllWines;
+import gr.uoc.imse.winepro.ws.client.WineProWsStub.ListAllWinesResponse;
+import gr.uoc.imse.winepro.ws.client.WineProWsStub.WineTypeSequence;
 import java.rmi.RemoteException;
 import java.util.Map;
 import org.apache.axis2.AxisFault;
@@ -34,11 +34,11 @@ public class HomeController
 	@RequestMapping ( value = { "/", "/home" }, method = RequestMethod.GET )
 	public String showHomePage ( Map < String, Object > model )
 	{
-		WineProWsWineListStub stub = null;
+		WineProWsStub stub = null;
 		ListAllWinesResponse listAllWinesResponse = null;
 		try
 		{
-			stub = new WineProWsWineListStub();
+			stub = new WineProWsStub();
 			ListAllWines listAllWines = new ListAllWines();
 			listAllWinesResponse = stub.listAllWines( listAllWines );
 		}
