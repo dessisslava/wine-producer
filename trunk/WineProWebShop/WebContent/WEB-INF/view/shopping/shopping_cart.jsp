@@ -1,30 +1,39 @@
 <%@ taglib prefix="s" uri="/WEB-INF/taglib/spring.tld"%>
 
-<div>
-	<h2>Shopping Cart</h2>
-	<img alt="Shopping Cart" style="height: 24px; width: 24px;"
-		src="<s:url value='/resource' />/image/Shopping-Cart-Icon.png">
+<style media="screen" type="text/css">
+
+.button {
+    background-color: #CC0066;
+    color: #FFFFFF;
+    float: right;
+    padding: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.big-btn {
+    width: 160px;
+    height: 50px;
+}
+
+</style>
+
+<div align="center">
+	<h2>Order Grapes From Growers</h2>
+	<img alt="Order Grapes" style="height: 128px; width: 128px;"
+		src="<s:url value='/resource' />/image/grape-icon.png">
+		
 		
 	<script type="text/javascript">
-		function processProductIds() {
-			var idArr = [];
-			var selectedProductsLi = $(".selectedProduct");
-			for (var i = 0; i < selectedProductsLi.length; i++) {
-				var s = selectedProductsLi[i].id;
-				s = s.replace("prd_", "");
-				idArr.push(s);
-			}
-			$("#selectedProductIdList").val(idArr);
-		}
 	</script>
 
-	<s:url var="checkoutURL" value="/checkout" />
-	<form method="post" class="signin" action="${checkoutURL}" onsubmit="processProductIds();">
+	<s:url var="orderGrapesURL" value="/orderGrapes" />
+	<form method="get" class="signin" action="${orderGrapesURL}" >
 
 		<fieldset>
 			<legend></legend>
-			<ol id="shoppingCardDiv"></ol>
-			<input type="hidden" id="selectedProductIdList" name="selectedProductIdList" value=""> <input type="submit" value="Check Out" />
+			<input type="submit" value="Order Grapes" class="button big-btn" />
 		</fieldset>
 	</form>
 </div>
