@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://imse.uoc.gr/WineQuantityPairType" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://imse.uoc.gr/WineQuantityPairType">
+    <complexType name="WineQuantityPairType">
+        <sequence maxOccurs="unbounded" minOccurs="0">
+            <element name="wineId" type="int"/>
+            <element name="quantity" type="int"/>
+        </sequence>
+    </complexType>
+    <element name="wineQuantityPairs" type="tns:WineQuantityPairType"/>
+</schema>

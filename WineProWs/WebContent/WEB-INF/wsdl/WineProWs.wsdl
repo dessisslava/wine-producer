@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://imse.uoc.gr/WineProWs/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WineProWs" targetNamespace="http://imse.uoc.gr/WineProWs/">
   <wsdl:types>
-    <xsd:schema targetNamespace="http://imse.uoc.gr/WineProWs/" xmlns:Q1="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck" xmlns:Q2="http://imse.uoc.gr/WineListRequestor">
-            <xsd:import schemaLocation="WineArrayType.xsd" namespace="http://imse.uoc.gr/WineListRequestor"></xsd:import>
-            <xsd:import schemaLocation="WineQuantityPairArrayType.xsd" namespace="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck"></xsd:import>
+    <xsd:schema targetNamespace="http://imse.uoc.gr/WineProWs/" xmlns:Q1="http://imse.uoc.gr/WineQuantityPairType" xmlns:Q2="http://imse.uoc.gr/WineArrayType">
+            <xsd:import schemaLocation="WineArrayType.xsd" namespace="http://imse.uoc.gr/WineArrayType"></xsd:import>
+            <xsd:import schemaLocation="WineQuantityPairArrayType.xsd" namespace="http://imse.uoc.gr/WineQuantityPairType"></xsd:import>
             <xsd:element name="listAllWines">
         <xsd:complexType>
           <xsd:sequence>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck" xmlns:tns="http://imse.uoc.gr/WineProWsWarehouseInventoryCheck" elementFormDefault="qualified">
-
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://imse.uoc.gr/WineQuantityPairType" xmlns:tns="http://imse.uoc.gr/WineQuantityPairType" elementFormDefault="qualified">
 
     <complexType name="WineQuantityPairType">
     	<sequence maxOccurs="unbounded" minOccurs="0">
@@ -8,8 +7,6 @@
     		<element name="quantity" type="int"></element>
     	</sequence>
     </complexType>
-
-
 
     <element name="wineQuantityPairs" type="tns:WineQuantityPairType"></element>
 </schema>

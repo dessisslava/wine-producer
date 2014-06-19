@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://imse.uoc.gr/WineListRequestor"
-	xmlns:tns="http://imse.uoc.gr/WineListRequestor" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://imse.uoc.gr/WineArrayType"
+	xmlns:tns="http://imse.uoc.gr/WineArrayType" elementFormDefault="qualified">
 
 	<element name="wineArray" type="tns:WineType"></element>
 
