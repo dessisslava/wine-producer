@@ -172,6 +172,42 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="listAllWinesInBetween">
+      <soap:operation soapAction="http://imse.uoc.gr/WineProWs/listAllWinesInBetween"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="warehouseInventoryCheck">
+      <soap:operation soapAction="http://imse.uoc.gr/WineProWs/warehouseInventoryCheck"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="warehouseInventoryReserve">
+      <soap:operation soapAction="http://imse.uoc.gr/WineProWs/warehouseInventoryReserve"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalPriceOfGoods">
+      <soap:operation soapAction="http://imse.uoc.gr/WineProWs/getTotalPriceOfGoods"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="WineProWs">
     <wsdl:port name="WineProWsSOAP" binding="tns:WineProWsSOAP">
