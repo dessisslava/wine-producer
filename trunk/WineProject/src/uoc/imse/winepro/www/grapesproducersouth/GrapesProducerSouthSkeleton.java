@@ -30,7 +30,7 @@ import uoc.imse.winepro.www.grapesproducer.*;
         
         private static Connection conn = null;
         private static Statement stmt = null;
-        private static String dbURL = "jdbc:mysql://localhost:3306/grapesproducernorth?user=root&password=admin";
+        private static String dbURL = "jdbc:mysql://localhost:3306/grapesproducersouth?user=root&password=admin";
 
         
         

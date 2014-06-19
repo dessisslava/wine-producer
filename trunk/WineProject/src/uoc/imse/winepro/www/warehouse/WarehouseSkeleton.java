@@ -79,12 +79,15 @@ import java.sql.Statement;
                      try
                      {
                          stmt = conn.createStatement();
-                         stmt.executeUpdate("UPDATE grapes_inventory set Quantity_reserved= Quantity_reserved + " +quantity+ ", Quantity_available= Quantity_available - " +quantity+
+                         int rows=stmt.executeUpdate("UPDATE grapes_inventory set Quantity_reserved= Quantity_reserved + " +quantity+ ", Quantity_available= Quantity_available - " +quantity+
                         		 " WHERE grapes_variety = '"   +grapes_variety+ "'" );
 
+                         if (rows>0) {confirmation=true;}
+                         
+                         
                          stmt.close();
-                         confirmation=true;
-                      
+                         conn.commit();
+                         
                      }
                      catch (Exception e)
                      {
