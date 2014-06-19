@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://eclipse.org/bpel/Order_Grapes" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://www.winepro.imse.uoc/GrapesProducerNorth/" xmlns:wsdl1="http://www.winepro.imse.uoc/GrapesProducerSouth/" xmlns:wsdl2="http://eclipse.org/bpel/Perform_Order" name="Order_Grapes" targetNamespace="http://eclipse.org/bpel/Order_Grapes">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="GrapeProducerNorthPL">
+    <plnk:role name="GrapeProducerNorthRole" portType="wsdl:GrapesProducerNorth"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="GrapesProducerSouthPL">
+    <plnk:role name="GrapesProducerSouthRole" portType="wsdl1:GrapesProducerSouth"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PerformOrderPL">
+    <plnk:role name="PerformOrderRole" portType="wsdl2:Perform_Order"/>
+  </plnk:partnerLinkType>
+    <import location="GrapesProducerNorth.wsdl" namespace="http://www.winepro.imse.uoc/GrapesProducerNorth/"/>
+    <import location="GrapesProducerSouth.wsdl" namespace="http://www.winepro.imse.uoc/GrapesProducerSouth/"/>
+    <import location="Perform_Order.wsdl" namespace="http://eclipse.org/bpel/Perform_Order"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://eclipse.org/bpel/Order_Grapes">
+
+            <element name="Order_GrapesRequest">
+                <complexType>
+                    <sequence>
+                    	<element name="Grapes_Variety" type="string"/>
+                    	<element name="Quantity" type="double"/>
+                    	<element name="Delivery_Address" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="Order_GrapesResponse">
+                <complexType>
+                    <sequence>
+                    	<element name="Producer" type="string"/>
+                    	<element name="Order_Id" type="string"/>
+                    	<element name="Order_Date" type="date"/>
+                    	<element name="Order_Status" type="string"/>
+                    	<element name="Grapes_Variety" type="string"/>
+                    	<element name="Quantity" type="double"/>
+                    	<element name="Price" type="double"/>
+                    	<element name="Delivery_Address" type="string">
+                    	</element>
+                    	<element name="Expected_Delivery_Date" type="date">
+                    	</element>
+                    	<element name="Transportation_Company" type="string"/>
+                    	<element name="Confirmation" type="boolean"/>
+                    </sequence>
+                </complexType>
+            </element>
+        
+            <complexType name="Price_North">
+            	<sequence>
+            		<element name="Price_N" type="double"/>
+            	</sequence>
+            </complexType>
+            
+            <complexType name="Price_South">
+            	<sequence>
+            		<element name="Price_S" type="double"/>
+            	</sequence>
+            </complexType>
+        
+            <element name="PriceN_element" type="tns:Price_North"/>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="Order_GrapesRequestMessage">
+        <part element="tns:Order_GrapesRequest" name="payload"/>
+    </message>
+    <message name="Order_GrapesResponseMessage">
+        <part element="tns:Order_GrapesResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the Order_Grapes BPEL process -->
+    <portType name="Order_Grapes">
+        <operation name="process">
+            <input message="tns:Order_GrapesRequestMessage"/>
+            <output message="tns:Order_GrapesResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="Order_Grapes">
+        <plnk:role name="Order_GrapesProvider" portType="tns:Order_Grapes"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="Order_GrapesBinding" type="tns:Order_Grapes">
+
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    	<operation name="process">
+
+    		<soap:operation soapAction="http://eclipse.org/bpel/Order_Grapes/process"/>
+    		<input>
+
+    			<soap:body use="literal"/>
+    		</input>
+    		<output>
+
+    			<soap:body use="literal"/>
+    		</output>
+    	</operation>
+    </binding>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="Order_GrapesService">
+    	<port binding="tns:Order_GrapesBinding" name="Order_GrapesPort">
+    		<soap:address location="http://localhost:8080/ode/processes/Order_Grapes"/>
+    	</port>
+    </service>
+</definitions>
