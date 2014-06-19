@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.jboss.org/dtd/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.datasource">java:comp/env/jdbc/wineproDbPool</property>
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		<property name="hibernate.show_sql">true</property>
+
+		<!-- Mapping files -->
+		<!-- common -->
+		<mapping resource="mapping/common/Address.hbm.xml" />
+		<mapping resource="mapping/common/Inventory.hbm.xml" />
+		<mapping resource="mapping/common/Order.hbm.xml" />
+		<mapping resource="mapping/common/PaymentInfo.hbm.xml" />
+		<mapping resource="mapping/common/TransportationCompany.hbm.xml" />
+		<mapping resource="mapping/common/User.hbm.xml" />
+		<mapping resource="mapping/common/Warehouse.hbm.xml" />
+		<mapping resource="mapping/common/Wine.hbm.xml" />
+		<mapping resource="mapping/common/WineOrder.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
