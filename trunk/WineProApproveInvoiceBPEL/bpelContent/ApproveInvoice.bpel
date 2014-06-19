@@ -5,10 +5,11 @@
          suppressJoinFailure="yes"
          xmlns:tns="http://imse.uoc.gr"
          xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
-         xmlns:ns="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/" xmlns:xsd="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve">
+         xmlns:ns="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/" xmlns:xsd="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve" xmlns:ns1="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://imse.uoc.gr/winePriceWSDLFile/">
 
     <!-- Import the client WSDL -->
   
+    <bpel:import namespace="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/" location="WineProWsWarehouseInventoryReserve.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
     <bpel:import location="ApproveInvoiceArtifacts.wsdl" namespace="http://imse.uoc.gr" 
 	        importType="http://schemas.xmlsoap.org/wsdl/" />
          
@@ -22,7 +23,11 @@
                      partnerLinkType="tns:ApproveInvoice"
                      myRole="ApproveInvoiceProvider"
                      />
-        <bpel:partnerLink name="WarehouseReservationPL" partnerLinkType="tns:WarehouseReservationPLT" partnerRole="WarehouseReservationPLRole"></bpel:partnerLink>
+        
+        
+        
+        <bpel:partnerLink name="ReservationPL" partnerLinkType="tns:ReservationPLT" partnerRole="ReservationPLTRole"></bpel:partnerLink>
+        
     </bpel:partnerLinks>
   
     <!-- ================================================================= -->         
@@ -39,8 +44,23 @@
           -->
         <bpel:variable name="output"
                   messageType="tns:ApproveInvoiceResponseMessage"/>
-        <bpel:variable name="WarehouseReservationPLResponse" messageType="ns:warehouseInventoryReserveResponse"></bpel:variable>
-        <bpel:variable name="WarehouseReservationPLRequest" messageType="ns:warehouseInventoryReserveRequest"></bpel:variable>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <bpel:variable name="ReservationPLResponse" messageType="ns:warehouseInventoryReserveResponse"></bpel:variable>
+        <bpel:variable name="ReservationPLRequest" messageType="ns:warehouseInventoryReserveRequest"></bpel:variable>
+        
+        
+        
+        
     </bpel:variables>
 
     <!-- ================================================================= -->         
@@ -59,7 +79,17 @@
                  createInstance="yes"/>
         
         <!-- Generate reply to synchronous request -->
-        <bpel:assign validate="no" name="AssignWarehouseReservation">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <bpel:assign validate="no" name="Assign">
             <bpel:copy>
                 <bpel:from><bpel:literal><tns:warehouseInventoryReserve xmlns:tns="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve/" xmlns:tns1="http://imse.uoc.gr/WineProWsWarehouseInventoryReserve" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <wineQuantityPairs>
@@ -69,23 +99,21 @@
   <warehouseCity>warehouseCity</warehouseCity>
 </tns:warehouseInventoryReserve>
 </bpel:literal></bpel:from>
-                <bpel:to variable="WarehouseReservationPLRequest" part="parameters"></bpel:to>
+                <bpel:to variable="ReservationPLRequest" part="parameters"></bpel:to>
             </bpel:copy>
             <bpel:copy>
                 <bpel:from part="payload" variable="input">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:wineId]]></bpel:query>
                 </bpel:from>
-                <bpel:to part="parameters" variable="WarehouseReservationPLRequest">
+                <bpel:to part="parameters" variable="ReservationPLRequest">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[wineQuantityPairs/xsd:wineId]]></bpel:query>
                 </bpel:to>
             </bpel:copy>
             <bpel:copy>
                 <bpel:from part="payload" variable="input">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
-                        <![CDATA[tns:quantity]]>
-                    </bpel:query>
+                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:quantity]]></bpel:query>
                 </bpel:from>
-                <bpel:to part="parameters" variable="WarehouseReservationPLRequest">
+                <bpel:to part="parameters" variable="ReservationPLRequest">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[wineQuantityPairs/xsd:quantity]]></bpel:query>
                 </bpel:to>
             </bpel:copy>
@@ -93,13 +121,22 @@
                 <bpel:from part="payload" variable="input">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:warehouseCity]]></bpel:query>
                 </bpel:from>
-                <bpel:to part="parameters" variable="WarehouseReservationPLRequest">
+                <bpel:to part="parameters" variable="ReservationPLRequest">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[warehouseCity]]></bpel:query>
                 </bpel:to>
             </bpel:copy>
         </bpel:assign>
-        <bpel:invoke name="InvokeWarehouseReservation" partnerLink="WarehouseReservationPL" operation="warehouseInventoryReserve" portType="ns:WineProWsWarehouseInventoryReserve" inputVariable="WarehouseReservationPLRequest" outputVariable="WarehouseReservationPLResponse"></bpel:invoke>
-        <bpel:assign validate="no" name="Assign1">
+        <bpel:invoke name="Invoke" partnerLink="ReservationPL" operation="warehouseInventoryReserve" portType="ns:WineProWsWarehouseInventoryReserve" inputVariable="ReservationPLRequest" outputVariable="ReservationPLResponse"></bpel:invoke>
+        
+        
+        
+        
+        
+        <bpel:assign validate="no" name="Assign2">
+            
+            
+            
+            
             <bpel:copy>
                 <bpel:from><bpel:literal><tns:ApproveInvoiceResponse xmlns:tns="http://imse.uoc.gr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tns:totalPriceOfGoods>0.0</tns:totalPriceOfGoods>
@@ -110,16 +147,19 @@
 </bpel:literal></bpel:from>
                 <bpel:to variable="output" part="payload"></bpel:to>
             </bpel:copy>
+            
             <bpel:copy>
-                <bpel:from part="parameters" variable="WarehouseReservationPLResponse">
-                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[message]]></bpel:query>
+                <bpel:from part="parameters" variable="ReservationPLResponse">
+                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                        <![CDATA[message]]>
+                    </bpel:query>
                 </bpel:from>
                 <bpel:to part="payload" variable="output">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:message]]></bpel:query>
                 </bpel:to>
             </bpel:copy>
             <bpel:copy>
-                <bpel:from part="parameters" variable="WarehouseReservationPLResponse">
+                <bpel:from part="parameters" variable="ReservationPLResponse">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[success]]></bpel:query>
                 </bpel:from>
                 <bpel:to part="payload" variable="output">
