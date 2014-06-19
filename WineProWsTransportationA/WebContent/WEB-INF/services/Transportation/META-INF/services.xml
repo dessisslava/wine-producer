@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) --><serviceGroup>
+    <service name="Transportation">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="gr.uoc.imse.transportationa.ws.TransportationMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">gr.uoc.imse.transportationa.ws.TransportationSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getDeliveryStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.winepro.imse.uoc/Transportation/">
+            <actionMapping>http://www.winepro.imse.uoc/Transportation/getDeliveryStatus</actionMapping>
+            <outputActionMapping>http://www.winepro.imse.uoc/Transportation/Transportation/getDeliveryStatusResponse</outputActionMapping>
+        </operation>
+        <operation name="getCost" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.winepro.imse.uoc/Transportation/">
+            <actionMapping>http://www.winepro.imse.uoc/Transportation/getCost</actionMapping>
+            <outputActionMapping>http://www.winepro.imse.uoc/Transportation/Transportation/getCostResponse</outputActionMapping>
+        </operation>
+        <operation name="deliverGrapes" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.winepro.imse.uoc/Transportation/">
+            <actionMapping>http://www.winepro.imse.uoc/Transportation/deliverGrapes</actionMapping>
+            <outputActionMapping>http://www.winepro.imse.uoc/Transportation/Transportation/deliverGrapesResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

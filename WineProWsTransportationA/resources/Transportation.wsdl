@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Transportation" targetNamespace="http://www.winepro.imse.uoc/Transportation/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.winepro.imse.uoc/Transportation/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.winepro.imse.uoc/Transportation_Schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.winepro.imse.uoc/Transportation/" xmlns:pref="http://www.winepro.imse.uoc/Transportation">
+    	<xsd:import namespace="http://www.winepro.imse.uoc/Transportation_Schema" schemaLocation="Transportation_Schema.xsd"/>
+    	<xsd:element name="getCost">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="getCostResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="deliverGrapes">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="NewOperationResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="getCostResponse1">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="deliverGrapesResponse1">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="getDeliveryStatus">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="getDeliveryStatusResponse1">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="http://www.winepro.imse.uoc/Transportation_Schema" schemaLocation="Transportation_Schema.xsd">
+    	</xsd:import></xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getCostRequest1">
+    <wsdl:part name="parameters" element="xsd1:getCostRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeliveryStatusResponse1">
+    <wsdl:part name="parameters" element="xsd1:getDeliveryStatusResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part name="parameters" element="tns:NewOperationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCostResponse1">
+    <wsdl:part name="parameters" element="xsd1:getCostResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deliverGrapesRequest">
+    <wsdl:part name="parameters" element="xsd1:deliverGrapesRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCostResponse">
+    <wsdl:part name="parameters" element="tns:getCostResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCostRequest">
+    <wsdl:part name="parameters" element="tns:getCost">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeliveryStatusRequest">
+    <wsdl:part name="parameters" element="xsd1:getDeliveryStatusRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deliverGrapesResponse1">
+    <wsdl:part name="parameters" element="xsd1:deliverGrapesResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Transportation">
+    <wsdl:operation name="getCost">
+      <wsdl:input message="tns:getCostRequest1">
+    </wsdl:input>
+      <wsdl:output message="tns:getCostResponse1">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deliverGrapes">
+      <wsdl:input message="tns:deliverGrapesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deliverGrapesResponse1">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryStatus">
+      <wsdl:input message="tns:getDeliveryStatusRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getDeliveryStatusResponse1">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransportationSOAP" type="tns:Transportation">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCost">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/Transportation/getCost"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deliverGrapes">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/Transportation/deliverGrapes"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryStatus">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/Transportation/getDeliveryStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Transportation">
+    <wsdl:port name="TransportationSOAP" binding="tns:TransportationSOAP">
+      <soap:address location="http://localhost:9080/WineProWsTransportationA/services/WineProWsTransportationA"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
