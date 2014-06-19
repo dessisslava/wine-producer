@@ -27,8 +27,8 @@
 
 
 	<jdbc-user-service id="securityUserService" data-source-ref="dataSource"
-		users-by-username-query="select name, password, active from winepro.tb_user where name=?"
-		authorities-by-username-query="select name,'ROLE_USER' from winepro.tb_user where name=?" />
+		users-by-username-query="select name, password, active from retailer.tb_user where name=?"
+		authorities-by-username-query="select name,'ROLE_USER' from retailer.tb_user where name=?" />
 
 	<global-method-security secured-annotations="enabled" />
 

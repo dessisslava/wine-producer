@@ -9,19 +9,9 @@
       http://www.springframework.org/schema/tx
       http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
-	<bean id="wineService" class="gr.uoc.imse.winepro.service.impl.WineServiceImpl">
-		<property name="dao" ref="wineDao" />
-		<property name="dbResourceManager" ref="dbResourceManager" />
-	</bean>
-	
-	<bean id="orderService" class="gr.uoc.imse.winepro.service.impl.OrderServiceImpl">
-		<property name="dao" ref="orderDao" />
-		<property name="dbResourceManager" ref="dbResourceManager" />
-	</bean>
-	
-	<bean id="wineOrderService" class="gr.uoc.imse.winepro.service.impl.WineOrderServiceImpl">
-		<property name="dao" ref="wineOrderDao" />
-		<property name="dbResourceManager" ref="dbResourceManager" />
-	</bean>
+	<!-- <bean id="wineService" class="gr.uoc.imse.winepro.service.impl.WineServiceImpl"> -->
+	<!-- <property name="dao" ref="wineDao" /> -->
+	<!-- <property name="dbResourceManager" ref="dbResourceManager" /> -->
+	<!-- </bean> -->
 
 </beans>

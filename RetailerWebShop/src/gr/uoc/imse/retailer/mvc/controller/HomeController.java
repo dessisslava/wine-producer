@@ -1,6 +1,5 @@
 package gr.uoc.imse.retailer.mvc.controller;
 
-import gr.uoc.imse.winepro.service.WineService;
 import gr.uoc.imse.winepro.ws.client.WineProWsStub;
 import gr.uoc.imse.winepro.ws.client.WineProWsStub.ListAllWines;
 import gr.uoc.imse.winepro.ws.client.WineProWsStub.ListAllWinesResponse;
@@ -8,7 +7,6 @@ import gr.uoc.imse.winepro.ws.client.WineProWsStub.WineTypeSequence;
 import java.rmi.RemoteException;
 import java.util.Map;
 import org.apache.axis2.AxisFault;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,16 +17,8 @@ public class HomeController
 {
 	private static final int PRODUCTS_PER_PAGE = 20;
 
-	@Autowired
-	private WineService wineService;
-
 	public HomeController ()
 	{
-	}
-
-	public void setWineService ( WineService wineService )
-	{
-		this.wineService = wineService;
 	}
 
 	@RequestMapping ( value = { "/", "/home" }, method = RequestMethod.GET )
