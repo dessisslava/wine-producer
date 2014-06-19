@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:BankWSDLFile="http://www.example.org/BankWSDLFile/" xmlns:WineProWs="http://imse.uoc.gr/WineProWs/" xmlns:imse.uoc.gr="http://imse.uoc.gr">
+  <process name="imse.uoc.gr:OrderWine2ndPhase">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="imse.uoc.gr:OrderWine2ndPhaseService" port="OrderWine2ndPhasePort"/>
+    </provide>
+    <invoke partnerLink="WineProPL">
+      <service name="WineProWs:WineProWs" port="WineProWsSOAP"/>
+    </invoke>
+    <invoke partnerLink="BankPL">
+      <service name="BankWSDLFile:BankWSDLFile" port="BankWSDLFileSOAP"/>
+    </invoke>
+  </process>
+</deploy>

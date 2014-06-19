@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://imse.uoc.gr" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://imse.uoc.gr/WineProWs/" xmlns:wsdl1="http://www.example.org/BankWSDLFile/" name="OrderWine2ndPhase" targetNamespace="http://imse.uoc.gr">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="WineProPLT">
+    <plnk:role name="WineProPLRole" portType="wsdl:WineProWs"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="BankPLT">
+    <plnk:role name="BankPLRole" portType="wsdl1:BankWSDLFile"/>
+  </plnk:partnerLinkType>
+    <import location="WineProWs.wsdl" namespace="http://imse.uoc.gr/WineProWs/"/>
+    <import location="BankWSDLFile.wsdl" namespace="http://www.example.org/BankWSDLFile/"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://imse.uoc.gr/WineQuantityPairType" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://imse.uoc.gr">
+
+            <import namespace="http://imse.uoc.gr/WineQuantityPairType" schemaLocation="WineQuantityPairArrayType.xsd"/>
+            <element name="OrderWine2ndPhaseRequest">
+                <complexType>
+                    <sequence>
+                    	<element name="wineQuantityPairs" type="Q1:WineQuantityPairType"/>
+                    	<element name="warehouseCity" type="string"/>
+                    	<element name="amountOfMoney" type="double"/>
+                    	<element name="nameSurname1" type="string"/>
+                    	<element name="expirationDate1" type="date"/>
+                    	<element name="cardNumber1" type="string"/>
+                    	<element name="securityNumber1" type="string"/>
+                    	<element name="nameSurname2" type="string"/>
+                    	<element name="expirationDate2" type="date"/>
+                    	<element name="cardNumber2" type="string"/>
+                    	<element name="securityNumber2" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="OrderWine2ndPhaseResponse">
+                <complexType>
+                    <sequence>
+                    	<element name="totalPriceOfGoods" type="decimal"/>
+                    	<element name="transportationCost" type="decimal">
+                    	</element>
+                    	<element name="message" type="string"/>
+                    	<element name="satisfiable" type="boolean"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="OrderWine2ndPhaseRequestMessage">
+        <part element="tns:OrderWine2ndPhaseRequest" name="payload"/>
+    </message>
+    <message name="OrderWine2ndPhaseResponseMessage">
+        <part element="tns:OrderWine2ndPhaseResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the OrderWine2ndPhase BPEL process -->
+    <portType name="OrderWine2ndPhase">
+        <operation name="process">
+            <input message="tns:OrderWine2ndPhaseRequestMessage"/>
+            <output message="tns:OrderWine2ndPhaseResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="OrderWine2ndPhase">
+        <plnk:role name="OrderWine2ndPhaseProvider" portType="tns:OrderWine2ndPhase"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="OrderWine2ndPhaseBinding"
+    	type="tns:OrderWine2ndPhase">
+
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<operation name="process">
+
+    		<soap:operation soapAction="http://imse.uoc.gr/process" />
+    		<input>
+
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    </binding>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="OrderWine2ndPhaseService">
+    	<port binding="tns:OrderWine2ndPhaseBinding" name="OrderWine2ndPhasePort">
+    		<soap:address location="http://localhost:8080/ode/processes/OrderWine2ndPhase"/>
+    	</port>
+    </service>
+</definitions>

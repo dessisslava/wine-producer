@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://imse.uoc.gr/WineProWs/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WineProWs" targetNamespace="http://imse.uoc.gr/WineProWs/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://imse.uoc.gr/WineProWs/" xmlns:Q1="http://imse.uoc.gr/WineQuantityPairType" xmlns:Q2="http://imse.uoc.gr/WineArrayType">
+            <xsd:import schemaLocation="WineArrayType.xsd" namespace="http://imse.uoc.gr/WineArrayType"></xsd:import>
+            <xsd:import schemaLocation="WineQuantityPairArrayType.xsd" namespace="http://imse.uoc.gr/WineQuantityPairType"></xsd:import>
+            <xsd:element name="listAllWines">
+        <xsd:complexType>
+          <xsd:sequence>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="listAllWinesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="wineArray" type="Q2:WineType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="listAllWinesInBetween">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="firstResult" type="xsd:int"></xsd:element>
+      			<xsd:element name="maxResults" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="listAllWinesInBetweenResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="wineArray" type="Q2:WineType"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="warehouseInventoryCheck">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="wineQuantityPairArray" type="Q1:WineQuantityPairType"></xsd:element>
+      			<xsd:element name="warehouseCity" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="warehouseInventoryCheckResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="message" type="xsd:string"></xsd:element>
+      			<xsd:element name="satisfiable" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="warehouseInventoryReserve">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="wineQuantityPairArray" type="Q1:WineQuantityPairType"></xsd:element>
+      			<xsd:element name="warehouseCity" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="warehouseInventoryReserveResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="message" type="xsd:string"></xsd:element>
+      			<xsd:element name="successful" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTotalPriceOfGoods">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="wineQuantityPairArray" type="Q1:WineQuantityPairType"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTotalPriceOfGoodsResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="totalPriceOfGoods" type="xsd:decimal"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="listAllWinesRequest">
+    <wsdl:part element="tns:listAllWines" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="listAllWinesResponse">
+    <wsdl:part element="tns:listAllWinesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="listAllWinesInBetweenRequest">
+  	<wsdl:part name="parameters" element="tns:listAllWinesInBetween"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listAllWinesInBetweenResponse">
+  	<wsdl:part name="parameters" element="tns:listAllWinesInBetweenResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="warehouseInventoryCheckRequest">
+  	<wsdl:part name="parameters" element="tns:warehouseInventoryCheck"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="warehouseInventoryCheckResponse">
+  	<wsdl:part name="parameters" element="tns:warehouseInventoryCheckResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="warehouseInventoryReserveRequest">
+  	<wsdl:part name="parameters" element="tns:warehouseInventoryReserve"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="warehouseInventoryReserveResponse">
+  	<wsdl:part name="parameters" element="tns:warehouseInventoryReserveResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTotalPriceOfGoodsRequest">
+  	<wsdl:part name="parameters" element="tns:getTotalPriceOfGoods"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTotalPriceOfGoodsResponse">
+  	<wsdl:part name="parameters" element="tns:getTotalPriceOfGoodsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WineProWs">
+    <wsdl:operation name="listAllWines">
+      <wsdl:input message="tns:listAllWinesRequest"/>
+      <wsdl:output message="tns:listAllWinesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="listAllWinesInBetween">
+    	<wsdl:input message="tns:listAllWinesInBetweenRequest"></wsdl:input>
+    	<wsdl:output message="tns:listAllWinesInBetweenResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="warehouseInventoryCheck">
+    	<wsdl:input message="tns:warehouseInventoryCheckRequest"></wsdl:input>
+    	<wsdl:output message="tns:warehouseInventoryCheckResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="warehouseInventoryReserve">
+    	<wsdl:input message="tns:warehouseInventoryReserveRequest"></wsdl:input>
+    	<wsdl:output message="tns:warehouseInventoryReserveResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalPriceOfGoods">
+    	<wsdl:input message="tns:getTotalPriceOfGoodsRequest"></wsdl:input>
+    	<wsdl:output message="tns:getTotalPriceOfGoodsResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WineProWsSOAP" type="tns:WineProWs">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="listAllWines">
+
+  		<soap:operation
+  			soapAction="http://imse.uoc.gr/WineProWs/listAllWines" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="listAllWinesInBetween">
+
+  		<soap:operation
+  			soapAction="http://imse.uoc.gr/WineProWs/listAllWinesInBetween" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="warehouseInventoryCheck">
+
+  		<soap:operation
+  			soapAction="http://imse.uoc.gr/WineProWs/warehouseInventoryCheck" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="warehouseInventoryReserve">
+
+  		<soap:operation
+  			soapAction="http://imse.uoc.gr/WineProWs/warehouseInventoryReserve" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getTotalPriceOfGoods">
+
+  		<soap:operation
+  			soapAction="http://imse.uoc.gr/WineProWs/getTotalPriceOfGoods" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WineProWs">
+    <wsdl:port binding="tns:WineProWsSOAP" name="WineProWsSOAP">
+      <soap:address location="http://localhost:9080/WineProWs/services/WineProWs"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
