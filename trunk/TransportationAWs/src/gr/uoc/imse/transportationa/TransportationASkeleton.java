@@ -39,6 +39,8 @@ public class TransportationASkeleton
 	public gr.uoc.imse.transportationa.GetTransportationCostResponse getTransportationCost (
 			gr.uoc.imse.transportationa.GetTransportationCost getTransportationCost )
 	{
+		System.out.println( "Transportation_A getTransportationCost!!!" );
+
 		GetTransportationCostResponse response = new GetTransportationCostResponse();
 		Date today = new Date();
 		Random random = new Random();
