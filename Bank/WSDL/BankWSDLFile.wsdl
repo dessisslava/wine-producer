@@ -45,20 +45,24 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BankWSDLFileSOAP" type="tns:BankWSDLFile">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="TransferMoney">
-      <soap:operation soapAction="http://www.example.org/BankWSDLFile/TransferMoney"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
+
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="TransferMoney">
+
+  		<soap:operation soapAction="http://www.example.org/BankWSDLFile/TransferMoney" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="BankWSDLFile">
     <wsdl:port binding="tns:BankWSDLFileSOAP" name="BankWSDLFileSOAP">
-      <soap:address location="http://localhost:8080/Bank/services/BankWSDLFile"/>
+      <soap:address location="http://localhost:9080/Bank/services/BankWSDLFile"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
