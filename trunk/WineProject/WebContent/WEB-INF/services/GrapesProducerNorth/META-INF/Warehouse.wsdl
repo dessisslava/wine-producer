@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Warehouse" targetNamespace="http://www.winepro.imse.uoc/Warehouse/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.winepro.imse.uoc/Warehouse/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.winepro.imse.uoc/Warehouse" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.winepro.imse.uoc/Warehouse/" xmlns:pref="http://www.winepro.imse.uoc/Warehouse">
+    	<xsd:import namespace="http://www.winepro.imse.uoc/Warehouse" schemaLocation="Warehouse.xsd"/>
+
+
+    	<xsd:element name="reserveContent">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="reserveContentResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="checkAvailability">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="in" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="checkAvailabilityResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+
+    				<xsd:element name="out" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="http://www.winepro.imse.uoc/Warehouse" schemaLocation="Warehouse.xsd">
+    	</xsd:import></xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="checkAvailabilityResponse">
+    <wsdl:part name="parameters" element="xsd1:checkAvailabilityResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkAvailabilityRequest">
+    <wsdl:part name="parameters" element="xsd1:checkAvailabilityRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reserveContentRequest">
+    <wsdl:part name="parameters" element="xsd1:reserverContentRequestElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reserveContentResponse">
+    <wsdl:part name="parameters" element="xsd1:reserveContentResponseElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Warehouse">
+    <wsdl:operation name="reserveContent">
+      <wsdl:input message="tns:reserveContentRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:reserveContentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAvailability">
+      <wsdl:input message="tns:checkAvailabilityRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:checkAvailabilityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WarehouseSOAP" type="tns:Warehouse">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="reserveContent">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/Warehouse/reserveContent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAvailability">
+      <soap:operation soapAction="http://www.winepro.imse.uoc/Warehouse/checkAvailability"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Warehouse">
+    <wsdl:port name="WarehouseSOAP" binding="tns:WarehouseSOAP">
+      <soap:address location="http://localhost:8080/WineProject/services/Warehouse"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
