@@ -38,9 +38,6 @@
 					</tr>
 					
 				</table>
-				<div align="center">
-					<input class="btnAdd" id="${wine.id}" type="button" value="Add To Cart" />
-				</div>
 			</div>
 		</c:forEach>
 	</div>
@@ -70,46 +67,8 @@
 		</c:forEach>
 		];
 		
-		var shoppingCartProducts = [];
-	
-		function removeProduct(id)
-		{
-			for (var i = 0; i < shoppingCartProducts.length; i++) {
-				if(shoppingCartProducts[i].id == id){
-					shoppingCartProducts.splice(i,1);
-					break;
-				};
-			};
-			updateCart();
-		}
+
 		
-		function updateCart()
-		{
-			$("#shoppingCardDiv").empty();
-			for (var i = 0; i < shoppingCartProducts.length; i++) {
-				$("#shoppingCardDiv").prepend(($('<input onclick="removeProduct('+ shoppingCartProducts[i].id  +');" type="button" value="Remove" style="width:50px;"/>')));
-				$("#shoppingCardDiv").prepend($('<li class="selectedProduct" id="prd_'+shoppingCartProducts[i].id + '">' +shoppingCartProducts[i].name+ '    '+shoppingCartProducts[i].price+'</li>').fadeIn('slow'));
-				
-			};
-		}
 		
-		$(document).ready(function() {
-			$(".btnAdd").click(function(event) {
-				
-				outer: for (var i = 0; i < productList.length; i++) {
-					if(event.target.id == productList[i].id){
-						for (var j = 0; j < shoppingCartProducts.length; j++) {
-							if(shoppingCartProducts[j].id == event.target.id){
-								break outer;
-							};
-						}
-						shoppingCartProducts.push(productList[i]);
-						break;
-					};
-				};
-				
-				updateCart();
-			});
-		});
 	</script>
 </div>
