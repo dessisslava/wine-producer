@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) --><serviceGroup>
+    <service name="TransportationB">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="gr.uoc.imse.transportationb.ws.TransportationBMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">gr.uoc.imse.transportationb.ws.TransportationBSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getTransportationCost" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/TransportationB/">
+            <actionMapping>http://imse.uoc.gr/TransportationB/getTransportationCost</actionMapping>
+            <outputActionMapping>http://imse.uoc.gr/TransportationB/TransportationB/getTransportationCostResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
