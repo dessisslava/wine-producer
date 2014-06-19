@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://imse.uoc.gr/WineArrayType"
+	xmlns:tns="http://imse.uoc.gr/WineArrayType" elementFormDefault="qualified">
+
+	<element name="wineArray" type="tns:WineType"></element>
+
+	<complexType name="WineType">
+		<sequence maxOccurs="unbounded" minOccurs="0">
+			<element name="id" type="int"></element>
+			<element name="name" type="string"></element>
+			<element name="productionDate" type="date"></element>
+			<element name="type" type="string"></element>
+			<element name="price" type="decimal"></element>
+			<element name="weight" type="float"></element>
+			<element name="imageUrl" type="string"></element>
+		</sequence>
+	</complexType>
+
+</schema>

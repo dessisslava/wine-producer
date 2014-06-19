@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:TransportationA="http://imse.uoc.gr/TransportationA/" xmlns:TransportationB="http://imse.uoc.gr/TransportationB/" xmlns:WineProWs="http://imse.uoc.gr/WineProWs/" xmlns:imse.uoc.gr="http://imse.uoc.gr" xmlns:transportationA="http://imse.uoc.gr/transportationA/">
+  <process name="imse.uoc.gr:OrderWine1stPhase">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="imse.uoc.gr:OrderWine1stPhaseService" port="OrderWine1stPhasePort"/>
+    </provide>
+    <invoke partnerLink="WineProPL">
+      <service name="WineProWs:WineProWs" port="WineProWsSOAP"/>
+    </invoke>
+    <invoke partnerLink="Transport1PL">
+      <service name="TransportationA:TransportationA" port="TransportationASOAP"/>
+    </invoke>
+    <invoke partnerLink="Transport2PL">
+      <service name="TransportationB:TransportationB" port="TransportationBSOAP"/>
+    </invoke>
+  </process>
+</deploy>
