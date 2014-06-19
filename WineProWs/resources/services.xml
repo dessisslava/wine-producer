@@ -18,6 +18,10 @@
             <actionMapping>http://imse.uoc.gr/WineProWs/warehouseInventoryCheck</actionMapping>
             <outputActionMapping>http://imse.uoc.gr/WineProWs/WineProWs/warehouseInventoryCheckResponse</outputActionMapping>
         </operation>
+        <operation name="getTotalWeightVolume" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWs/">
+            <actionMapping>http://imse.uoc.gr/WineProWs/getTotalWeightVolume</actionMapping>
+            <outputActionMapping>http://imse.uoc.gr/WineProWs/WineProWs/getTotalWeightVolumeResponse</outputActionMapping>
+        </operation>
         <operation name="warehouseInventoryReserve" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://imse.uoc.gr/WineProWs/">
             <actionMapping>http://imse.uoc.gr/WineProWs/warehouseInventoryReserve</actionMapping>
             <outputActionMapping>http://imse.uoc.gr/WineProWs/WineProWs/warehouseInventoryReserveResponse</outputActionMapping>
