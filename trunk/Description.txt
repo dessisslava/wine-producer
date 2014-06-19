@@ -1,0 +1,18 @@
+This file is intended to give description and use for each folder in this repository:
+
+1- Bank: Includes the Bank we service
+
+2- WineProWs* : Those folders include the web services needed for the wine order process,
+  - Transportation
+  - Warehouse Inventory
+  - Wine list
+  - Wine Price  
+3- WineProject : Eclipse project that includes the web services needed for the Grape order process
+  - Grape Producer North
+  - Grape Producer South
+  - Transportation company
+  - Warehouse
+  
+4- Producer_Process: Includes BPEL Process that the grapes producer executes when he receives a new order
+ 
+5- GrapesOrder_BPEL : Includes the BPEL process of the Wine company when deciding to buy grapes (This process invokes Producer_Process)
