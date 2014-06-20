@@ -46,8 +46,7 @@
                     	</element>
                     	<element name="Expected_Delivery_Date" type="date">
                     	</element>
-                    	<element name="Transportation_Company" type="string"/>
-                    	<element name="Confirmation" type="boolean"/>
+                    	<element name="Transportation_Company" type="string"/>
                     </sequence>
                 </complexType>
             </element>
@@ -106,17 +105,19 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <binding name="Order_GrapesBinding" type="tns:Order_Grapes">
 
-    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
     	<operation name="process">
 
-    		<soap:operation soapAction="http://eclipse.org/bpel/Order_Grapes/process"/>
+    		<soap:operation
+    			soapAction="http://eclipse.org/bpel/Order_Grapes/process" />
     		<input>
 
-    			<soap:body use="literal"/>
+    			<soap:body use="literal" />
     		</input>
     		<output>
 
-    			<soap:body use="literal"/>
+    			<soap:body use="literal" />
     		</output>
     	</operation>
     </binding>

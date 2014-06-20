@@ -14,7 +14,7 @@
   </extensions>
   <extensions>
     <extendedObject href="Order_Grapes.bpel#/"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1403189204432"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1403210045071"/>
   </extensions>
   <extensions>
     <extendedObject href="Order_Grapes.bpel#//@activity/@activities.0"/>
@@ -201,40 +201,8 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
     <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@else/@activity/@activities.2"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.1"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.2"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.3"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.4"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.5"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.6"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
     <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@else/@activity/@activities.2/@copy.1"/>
@@ -262,10 +230,6 @@
   </extensions>
   <extensions>
     <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@else/@activity/@activities.2/@copy.6"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.7"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
@@ -314,6 +278,42 @@
   </extensions>
   <extensions>
     <extendedObject href="Order_Grapes.bpel#//@activity/@activities.3/@copy.6"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.3"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.4"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.5"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.6"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="Order_Grapes.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.7"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
 </extensionmodel:ExtensionMap>
