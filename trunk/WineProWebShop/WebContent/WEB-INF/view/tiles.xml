@@ -18,6 +18,11 @@
 		<put-attribute name="side_down" value="/WEB-INF/view/shopping/empty.jsp" />
 	</definition>
 	
+	<definition name="results" extends="template">
+		<put-attribute name="content" value="/WEB-INF/view/results.jsp" />
+		<put-attribute name="side_down" value="/WEB-INF/view/shopping/empty.jsp" />
+	</definition>
+	
 	<definition name="payment_result" extends="template">
 		<put-attribute name="content" value="/WEB-INF/view/success.jsp" />
 		<put-attribute name="side_down" value="/WEB-INF/view/shopping/empty.jsp" />
