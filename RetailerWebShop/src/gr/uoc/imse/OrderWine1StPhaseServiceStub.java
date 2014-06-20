@@ -287,7 +287,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/TransportationB/",
-			"getTransportationCostResponse", "ns3" );
+			"getTransportationCostResponse", "ns15" );
 
 		/**
 		 * field for TransportationCost
@@ -488,7 +488,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/TransportationB/" ) )
 			{
-				return "ns3";
+				return "ns15";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -904,7 +904,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"getTotalWeightVolumeResponse", "ns6" );
+			"getTotalWeightVolumeResponse", "ns5" );
 
 		/**
 		 * field for TotalVolume
@@ -1057,7 +1057,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -1910,7 +1910,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"warehouseInventoryCheck", "ns6" );
+			"warehouseInventoryCheck", "ns5" );
 
 		/**
 		 * field for WineQuantityPairArray
@@ -2050,7 +2050,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -2416,7 +2416,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"getTotalWeightVolume", "ns6" );
+			"getTotalWeightVolume", "ns5" );
 
 		/**
 		 * field for WineQuantityPairArray
@@ -2508,7 +2508,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -2837,7 +2837,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/TransportationA/",
-			"checkStatusOfDeliveryResponse", "ns4" );
+			"checkStatusOfDeliveryResponse", "ns16" );
 
 		/**
 		 * field for Status
@@ -2942,7 +2942,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/TransportationA/" ) )
 			{
-				return "ns4";
+				return "ns16";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -3282,7 +3282,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/TransportationB/",
-			"checkStatusOfDelivery", "ns3" );
+			"checkStatusOfDelivery", "ns15" );
 
 		/**
 		 * field for Token
@@ -3387,7 +3387,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/TransportationB/" ) )
 			{
-				return "ns3";
+				return "ns15";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -3727,7 +3727,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/TransportationB/",
-			"checkStatusOfDeliveryResponse", "ns3" );
+			"checkStatusOfDeliveryResponse", "ns15" );
 
 		/**
 		 * field for Status
@@ -3832,7 +3832,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/TransportationB/" ) )
 			{
-				return "ns3";
+				return "ns15";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -4172,7 +4172,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/TransportationA/",
-			"getTransportationCostResponse", "ns4" );
+			"getTransportationCostResponse", "ns16" );
 
 		/**
 		 * field for TransportationCost
@@ -4373,7 +4373,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/TransportationA/" ) )
 			{
-				return "ns4";
+				return "ns16";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -4789,7 +4789,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/TransportationA/",
-			"getTransportationCost", "ns4" );
+			"getTransportationCost", "ns16" );
 
 		/**
 		 * field for WarehouseCity
@@ -5083,7 +5083,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/TransportationA/" ) )
 			{
-				return "ns4";
+				return "ns16";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -6285,7 +6285,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 		/*
 		 * This type was generated from the piece of schema that had name = WineTypeSequence Namespace URI =
-		 * http://imse.uoc.gr/WineArrayType Namespace Prefix = ns5
+		 * http://imse.uoc.gr/WineArrayType Namespace Prefix = ns4
 		 */
 
 		/**
@@ -6667,7 +6667,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineArrayType" ) )
 			{
-				return "ns5";
+				return "ns4";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -7191,7 +7191,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"listAllWinesInBetweenResponse", "ns6" );
+			"listAllWinesInBetweenResponse", "ns5" );
 
 		/**
 		 * field for WineArray
@@ -7283,7 +7283,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -8149,7 +8149,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/TransportationB/",
-			"getTransportationCost", "ns3" );
+			"getTransportationCost", "ns15" );
 
 		/**
 		 * field for WarehouseCity
@@ -8443,7 +8443,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/TransportationB/" ) )
 			{
-				return "ns3";
+				return "ns15";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -8924,7 +8924,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"getTotalPriceOfGoods", "ns6" );
+			"getTotalPriceOfGoods", "ns5" );
 
 		/**
 		 * field for WineQuantityPairArray
@@ -9016,7 +9016,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -10015,7 +10015,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"warehouseInventoryCheckResponse", "ns6" );
+			"warehouseInventoryCheckResponse", "ns5" );
 
 		/**
 		 * field for Message
@@ -10166,7 +10166,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -10536,7 +10536,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineArrayType",
-			"wineArray", "ns5" );
+			"wineArray", "ns4" );
 
 		/**
 		 * field for WineArray
@@ -10605,7 +10605,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineArrayType" ) )
 			{
-				return "ns5";
+				return "ns4";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -10899,7 +10899,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"getTotalPriceOfGoodsResponse", "ns6" );
+			"getTotalPriceOfGoodsResponse", "ns5" );
 
 		/**
 		 * field for TotalPriceOfGoods
@@ -11004,7 +11004,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -11344,7 +11344,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 		/*
 		 * This type was generated from the piece of schema that had name = WineType Namespace URI = http://imse.uoc.gr/WineArrayType
-		 * Namespace Prefix = ns5
+		 * Namespace Prefix = ns4
 		 */
 
 		/**
@@ -11498,7 +11498,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineArrayType" ) )
 			{
-				return "ns5";
+				return "ns4";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -11877,7 +11877,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"listAllWinesInBetween", "ns6" );
+			"listAllWinesInBetween", "ns5" );
 
 		/**
 		 * field for FirstResult
@@ -12024,7 +12024,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -12387,7 +12387,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/TransportationA/",
-			"checkStatusOfDelivery", "ns4" );
+			"checkStatusOfDelivery", "ns16" );
 
 		/**
 		 * field for Token
@@ -12492,7 +12492,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/TransportationA/" ) )
 			{
-				return "ns4";
+				return "ns16";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -12832,7 +12832,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"listAllWines", "ns6" );
+			"listAllWines", "ns5" );
 
 		/**
 		 * @param parentQName
@@ -12889,7 +12889,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -13192,7 +13192,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"warehouseInventoryReserve", "ns6" );
+			"warehouseInventoryReserve", "ns5" );
 
 		/**
 		 * field for WineQuantityPairArray
@@ -13332,7 +13332,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -13698,7 +13698,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"warehouseInventoryReserveResponse", "ns6" );
+			"warehouseInventoryReserveResponse", "ns5" );
 
 		/**
 		 * field for Message
@@ -13849,7 +13849,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
@@ -14219,7 +14219,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 	{
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName( "http://imse.uoc.gr/WineProWs/",
-			"listAllWinesResponse", "ns6" );
+			"listAllWinesResponse", "ns5" );
 
 		/**
 		 * field for WineArray
@@ -14311,7 +14311,7 @@ public class OrderWine1StPhaseServiceStub extends org.apache.axis2.client.Stub
 		{
 			if ( namespace.equals( "http://imse.uoc.gr/WineProWs/" ) )
 			{
-				return "ns6";
+				return "ns5";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
 		}
