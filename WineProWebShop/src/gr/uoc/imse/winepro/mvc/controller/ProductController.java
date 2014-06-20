@@ -62,10 +62,9 @@ public class ProductController
 			@RequestParam ( value = "quantity" ) String quantity, @RequestParam ( value = "deliveryAddress" ) String deliveryAddress,
 			HttpServletRequest request, HttpServletResponse response, Map < String, Object > model )
 	{
-
 		try
 		{
-			this.playThatFunkyMusicWhiteBoy();
+			this.playThatFunkyMusicWhiteBoy( model );
 		}
 		catch ( AxisFault e )
 		{
@@ -78,15 +77,10 @@ public class ProductController
 			e.printStackTrace();
 		}
 
-		// model.put( "selectedProductIdList", idList );
-		// model.put( "selectedProductList", wineList );
-		// model.put( "totalPrice", totalPrice );
-		// model.put( "shipmentCost", shipmentCost );
-
-		return "review_cart";
+		return "results";
 	}
 
-	private void playThatFunkyMusicWhiteBoy () throws AxisFault, RemoteException
+	private void playThatFunkyMusicWhiteBoy ( Map < String, Object > model ) throws AxisFault, RemoteException
 	{
 		Order_GrapesServiceStub stub = new Order_GrapesServiceStub();
 		Order_GrapesRequest request = new Order_GrapesRequest();
@@ -107,5 +101,11 @@ public class ProductController
 		double price = response.getPrice();
 
 		System.out.println( orderId );
+
+		model.put( "orderId", orderId );
+		model.put( "orderDate", orderDate );
+		model.put( "producer", producer );
+		model.put( "expectedDeliveryDate", expectedDeliveryDate );
+		model.put( "price", price );
 	}
 }

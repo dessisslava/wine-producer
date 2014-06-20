@@ -286,7 +286,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "placeOrder",
-                "ns9");
+                "ns14");
 
             
 
@@ -404,7 +404,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -1650,7 +1650,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation/",
                 "NewOperationResponse",
-                "ns3");
+                "ns11");
 
             
 
@@ -1768,7 +1768,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation/")){
-                return "ns3";
+                return "ns11";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2085,7 +2085,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://eclipse.org/bpel/Perform_Order",
                 "Perform_OrderResponse",
-                "ns1");
+                "ns9");
 
             
 
@@ -2385,7 +2385,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://eclipse.org/bpel/Perform_Order")){
-                return "ns1";
+                return "ns9";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2832,7 +2832,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation/",
                 "getDeliveryStatus",
-                "ns3");
+                "ns11");
 
             
 
@@ -2950,7 +2950,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation/")){
-                return "ns3";
+                return "ns11";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -5283,7 +5283,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation/",
                 "deliverGrapesResponse1",
-                "ns3");
+                "ns11");
 
             
 
@@ -5401,7 +5401,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation/")){
-                return "ns3";
+                return "ns11";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -5718,7 +5718,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Warehouse",
                 "reserveContentResponseElement",
-                "ns4");
+                "ns12");
 
             
 
@@ -5796,7 +5796,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse")){
-                return "ns4";
+                return "ns12";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -6057,7 +6057,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Warehouse/",
                 "reserveContent",
-                "ns5");
+                "ns13");
 
             
 
@@ -6175,7 +6175,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse/")){
-                return "ns5";
+                return "ns13";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -7139,7 +7139,7 @@
         /* This type was generated from the piece of schema that had
                 name = getCostResponse
                 Namespace URI = http://www.winepro.imse.uoc/Transportation_Schema
-                Namespace Prefix = ns2
+                Namespace Prefix = ns10
                 */
             
 
@@ -7295,7 +7295,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -7640,7 +7640,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Warehouse",
                 "checkAvailabilityRequestElement",
-                "ns4");
+                "ns12");
 
             
 
@@ -7718,7 +7718,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse")){
-                return "ns4";
+                return "ns12";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -8560,7 +8560,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation/",
                 "getCostResponse",
-                "ns3");
+                "ns11");
 
             
 
@@ -8678,7 +8678,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation/")){
-                return "ns3";
+                return "ns11";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -8994,7 +8994,7 @@
         /* This type was generated from the piece of schema that had
                 name = checkAvailabilityRequest
                 Namespace URI = http://www.winepro.imse.uoc/Warehouse
-                Namespace Prefix = ns4
+                Namespace Prefix = ns12
                 */
             
 
@@ -9155,7 +9155,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse")){
-                return "ns4";
+                return "ns12";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -9503,7 +9503,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation_Schema",
                 "getDeliveryStatusResponseElement",
-                "ns2");
+                "ns10");
 
             
 
@@ -9581,7 +9581,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -10146,36 +10146,6 @@
                                }
                             
 
-                        /**
-                        * field for Confirmation
-                        */
-
-                        
-                                    protected boolean localConfirmation ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return boolean
-                           */
-                           public  boolean getConfirmation(){
-                               return localConfirmation;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param Confirmation
-                               */
-                               public void setConfirmation(boolean param){
-                            
-                                            this.localConfirmation=param;
-                                    
-
-                               }
-                            
-
      
      
         /**
@@ -10402,19 +10372,6 @@
                                                    xmlWriter.writeCharacters(localTransportation_Company);
                                             
                                           }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                                    namespace = "http://eclipse.org/bpel/Order_Grapes";
-                                    writeStartElement(null, namespace, "Confirmation", xmlWriter);
-                             
-                                               if (false) {
-                                           
-                                                         throw new org.apache.axis2.databinding.ADBException("Confirmation cannot be null!!");
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localConfirmation));
-                                               }
                                     
                                    xmlWriter.writeEndElement();
                              
@@ -10687,12 +10644,6 @@
                                            throw new org.apache.axis2.databinding.ADBException("Transportation_Company cannot be null!!");
                                         }
                                     
-                                      elementList.add(new javax.xml.namespace.QName("http://eclipse.org/bpel/Order_Grapes",
-                                                                      "Confirmation"));
-                                 
-                                elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localConfirmation));
-                            
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -11008,31 +10959,6 @@
                                     
                                               object.setTransportation_Company(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://eclipse.org/bpel/Order_Grapes","Confirmation").equals(reader.getName())){
-                                
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"Confirmation" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setConfirmation(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
                                               
                                         reader.next();
                                     
@@ -11411,7 +11337,7 @@
         /* This type was generated from the piece of schema that had
                 name = reserveContentResponse
                 Namespace URI = http://www.winepro.imse.uoc/Warehouse
-                Namespace Prefix = ns4
+                Namespace Prefix = ns12
                 */
             
 
@@ -11524,7 +11450,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse")){
-                return "ns4";
+                return "ns12";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -11838,7 +11764,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "checkAvailabilityResponse",
-                "ns9");
+                "ns14");
 
             
 
@@ -11956,7 +11882,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -12273,7 +12199,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://eclipse.org/bpel/Perform_Order",
                 "Perform_OrderRequest",
-                "ns1");
+                "ns9");
 
             
 
@@ -12626,7 +12552,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://eclipse.org/bpel/Perform_Order")){
-                return "ns1";
+                return "ns9";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -13109,7 +13035,7 @@
         /* This type was generated from the piece of schema that had
                 name = getCostRequest
                 Namespace URI = http://www.winepro.imse.uoc/Transportation_Schema
-                Namespace Prefix = ns2
+                Namespace Prefix = ns10
                 */
             
 
@@ -13366,7 +13292,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -13782,7 +13708,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "getOrderStatus",
-                "ns9");
+                "ns14");
 
             
 
@@ -13900,7 +13826,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -14217,7 +14143,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation_Schema",
                 "getCostRequestElement",
-                "ns2");
+                "ns10");
 
             
 
@@ -14295,7 +14221,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -16104,7 +16030,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation_Schema",
                 "getCostResponseElement",
-                "ns2");
+                "ns10");
 
             
 
@@ -16182,7 +16108,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -16443,7 +16369,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "cancelOrderResponse",
-                "ns9");
+                "ns14");
 
             
 
@@ -16561,7 +16487,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -19365,7 +19291,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "listGrapesResponse",
-                "ns9");
+                "ns14");
 
             
 
@@ -19483,7 +19409,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -21517,7 +21443,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "cancelOrder",
-                "ns9");
+                "ns14");
 
             
 
@@ -21635,7 +21561,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -21952,7 +21878,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation_Schema",
                 "getDeliveryStatusRequestElement",
-                "ns2");
+                "ns10");
 
             
 
@@ -22030,7 +21956,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -22290,7 +22216,7 @@
         /* This type was generated from the piece of schema that had
                 name = reserveContentRequest
                 Namespace URI = http://www.winepro.imse.uoc/Warehouse
-                Namespace Prefix = ns4
+                Namespace Prefix = ns12
                 */
             
 
@@ -22499,7 +22425,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse")){
-                return "ns4";
+                return "ns12";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -22880,7 +22806,7 @@
         /* This type was generated from the piece of schema that had
                 name = getDeliveryStatusResponse
                 Namespace URI = http://www.winepro.imse.uoc/Transportation_Schema
-                Namespace Prefix = ns2
+                Namespace Prefix = ns10
                 */
             
 
@@ -23233,7 +23159,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -24056,7 +23982,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation/",
                 "getCost",
-                "ns3");
+                "ns11");
 
             
 
@@ -24174,7 +24100,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation/")){
-                return "ns3";
+                return "ns11";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -24491,7 +24417,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "listGrapes",
-                "ns9");
+                "ns14");
 
             
 
@@ -24609,7 +24535,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -25360,7 +25286,7 @@
         /* This type was generated from the piece of schema that had
                 name = deliverGrapesRequest
                 Namespace URI = http://www.winepro.imse.uoc/Transportation_Schema
-                Namespace Prefix = ns2
+                Namespace Prefix = ns10
                 */
             
 
@@ -25761,7 +25687,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -27025,7 +26951,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation_Schema",
                 "deliverGrapesRequestElement",
-                "ns2");
+                "ns10");
 
             
 
@@ -27103,7 +27029,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -27364,7 +27290,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "checkAvailability",
-                "ns9");
+                "ns14");
 
             
 
@@ -27482,7 +27408,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -27799,7 +27725,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "getOrderStatusResponse",
-                "ns9");
+                "ns14");
 
             
 
@@ -27917,7 +27843,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -28824,7 +28750,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation_Schema",
                 "deliverGrapesResponseElement",
-                "ns2");
+                "ns10");
 
             
 
@@ -28902,7 +28828,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -29163,7 +29089,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation/",
                 "getDeliveryStatusResponse1",
-                "ns3");
+                "ns11");
 
             
 
@@ -29281,7 +29207,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation/")){
-                return "ns3";
+                return "ns11";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -29597,7 +29523,7 @@
         /* This type was generated from the piece of schema that had
                 name = checkAvailabilityResponse
                 Namespace URI = http://www.winepro.imse.uoc/Warehouse
-                Namespace Prefix = ns4
+                Namespace Prefix = ns12
                 */
             
 
@@ -29710,7 +29636,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse")){
-                return "ns4";
+                return "ns12";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -30024,7 +29950,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/GrapesProducerNorth/",
                 "placeOrderResponse",
-                "ns9");
+                "ns14");
 
             
 
@@ -30142,7 +30068,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/GrapesProducerNorth/")){
-                return "ns9";
+                return "ns14";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -31572,7 +31498,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation/",
                 "deliverGrapes",
-                "ns3");
+                "ns11");
 
             
 
@@ -31690,7 +31616,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation/")){
-                return "ns3";
+                return "ns11";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -32007,7 +31933,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Warehouse",
                 "reserverContentRequestElement",
-                "ns4");
+                "ns12");
 
             
 
@@ -32085,7 +32011,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse")){
-                return "ns4";
+                return "ns12";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -32345,7 +32271,7 @@
         /* This type was generated from the piece of schema that had
                 name = getDeliveryStatusRequest
                 Namespace URI = http://www.winepro.imse.uoc/Transportation_Schema
-                Namespace Prefix = ns2
+                Namespace Prefix = ns10
                 */
             
 
@@ -32463,7 +32389,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -33640,7 +33566,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Warehouse",
                 "checkAvailabilityResponseElement",
-                "ns4");
+                "ns12");
 
             
 
@@ -33718,7 +33644,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse")){
-                return "ns4";
+                return "ns12";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -33979,7 +33905,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Warehouse/",
                 "checkAvailabilityResponse",
-                "ns5");
+                "ns13");
 
             
 
@@ -34097,7 +34023,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse/")){
-                return "ns5";
+                return "ns13";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -34414,7 +34340,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Warehouse/",
                 "checkAvailability",
-                "ns5");
+                "ns13");
 
             
 
@@ -34532,7 +34458,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse/")){
-                return "ns5";
+                return "ns13";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -35962,7 +35888,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Transportation/",
                 "getCostResponse1",
-                "ns3");
+                "ns11");
 
             
 
@@ -36080,7 +36006,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation/")){
-                return "ns3";
+                return "ns11";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -36397,7 +36323,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.winepro.imse.uoc/Warehouse/",
                 "reserveContentResponse",
-                "ns5");
+                "ns13");
 
             
 
@@ -36515,7 +36441,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Warehouse/")){
-                return "ns5";
+                return "ns13";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -37347,7 +37273,7 @@
         /* This type was generated from the piece of schema that had
                 name = deliverGrapesResponse
                 Namespace URI = http://www.winepro.imse.uoc/Transportation_Schema
-                Namespace Prefix = ns2
+                Namespace Prefix = ns10
                 */
             
 
@@ -37556,7 +37482,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.winepro.imse.uoc/Transportation_Schema")){
-                return "ns2";
+                return "ns10";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
