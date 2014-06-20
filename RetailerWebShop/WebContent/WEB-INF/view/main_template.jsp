@@ -55,10 +55,9 @@ to {
 }
 </style>
 
-<script src="<s:url value="/resource" />/js/jquery.js"
-	type="text/javascript"></script>
-<script src="<s:url value="/resource" />/js/freewall.js"
-	type="text/javascript"></script>
+<script src="<s:url value="/resource" />/js/jquery.js" type="text/javascript"></script>
+<script src="<s:url value="/resource" />/js/freewall.js" type="text/javascript"></script>
+<script src="<s:url value="/resource" />/js/json2.js" type="text/javascript"></script>
 </head>
 
 <body>

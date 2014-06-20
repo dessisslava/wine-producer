@@ -2,7 +2,7 @@
 
 <div>
 	<h2>Shopping Cart</h2>
-	<img alt="Shopping Cart" style="height: 24px; width: 24px;"
+	<img alt="Shopping Cart" style="height: 32px; width: 32px;"
 		src="<s:url value='/resource' />/image/Shopping-Cart-Icon.png">
 		
 	<script type="text/javascript">
@@ -15,6 +15,8 @@
 				idArr.push(s);
 			}
 			$("#selectedProductIdList").val(idArr);
+			
+			$("#productIdList").val(JSON.stringify(productList));
 		}
 	</script>
 
@@ -24,7 +26,9 @@
 		<fieldset>
 			<legend></legend>
 			<ol id="shoppingCardDiv"></ol>
-			<input type="hidden" id="selectedProductIdList" name="selectedProductIdList" value=""> <input type="submit" value="Check Out" />
+			<input type="hidden" id="selectedProductIdList" name="selectedProductIdList" value="">
+			<input type="hidden" id="productIdList" name="productIdList" value="">
+		    <input type="submit" value="Check Out" />
 		</fieldset>
 	</form>
 </div>
