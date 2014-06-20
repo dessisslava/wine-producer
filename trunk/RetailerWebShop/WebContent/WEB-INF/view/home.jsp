@@ -65,7 +65,7 @@
 		var productList = null;
 		productList = [
 		<c:forEach items="${wineList}" var="wine"  varStatus="loop">
-			{ "id":"${wine.id}" , "name":"${wine.name}", "producer":"${wine.type}", "price":"${wine.price}", "weight": "${wine.weight}"}
+			{ "id":"${wine.id}" , "name":"${wine.name}", "type":"${wine.type}", "price":"${wine.price}", "weight": "${wine.weight}", "productionDate": "<fmt:formatDate pattern='dd-MM-yyyy' value='${wine.productionDate}' />", "imageUrl": "${wine.imageUrl}"}
 			<c:if test="${!loop.last}">,</c:if>
 		</c:forEach>
 		];
